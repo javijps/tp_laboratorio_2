@@ -1,0 +1,10 @@
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\MiCalculadora\bin\Debug\MiCalculadora.exe.config
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\MiCalculadora\bin\Debug\MiCalculadora.exe
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\MiCalculadora\bin\Debug\MiCalculadora.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\MiCalculadora\obj\Debug\MiCalculadora.csprojAssemblyReference.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\MiCalculadora\obj\Debug\MiCalculadora.Form1.resources
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\MiCalculadora\obj\Debug\MiCalculadora.Properties.Resources.resources
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\MiCalculadora\obj\Debug\MiCalculadora.csproj.GenerateResource.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\MiCalculadora\obj\Debug\MiCalculadora.csproj.CoreCompileInputs.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\MiCalculadora\obj\Debug\MiCalculadora.exe
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\MiCalculadora\obj\Debug\MiCalculadora.pdb
