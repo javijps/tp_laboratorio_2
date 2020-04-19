@@ -1,0 +1,6 @@
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\Entidades\bin\Debug\Entidades.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\Entidades\obj\Debug\Entidades.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP1\TP1 Scalise Javier\Entidades\obj\Debug\Entidades.pdb

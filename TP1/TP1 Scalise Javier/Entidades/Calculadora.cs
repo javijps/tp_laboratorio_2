@@ -9,9 +9,11 @@ namespace Entidades
     public class Calculadora
     {
 
-        double Operar(Numero numero1,Numero numero2,string operador)
+        public double Operar(Numero numero1,Numero numero2,string operador)
         {
-            return 0;
+            //switch para cada caso de operacion
+            double resultado = numero1 + numero2;
+            return resultado;
         }
 
         private static string ValidarOperador(string operador)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Numero
+    public class Numero
     {
         private double numero;
 
@@ -28,18 +28,73 @@ namespace Entidades
             this.numero = Convert.ToDouble(numero);
         }
 
-        public double ValidarNumero(string strNumero)
-        {
-            return 0;
-        }
-
         #endregion
 
         #region Propiedades
 
-        public double SetNumero
+        public double SetNumero//unico lugar donde se llama a validar numero
         {
             set { this.numero = value; }
+        }
+
+        #endregion
+
+        #region Metodos
+
+        public string BinarioDecimal(string numero)//binario a decimal. trabaja con enteros positivos
+        {
+            string num = "";
+            return num;
+        }
+
+        public string DecimalBinario(string num)//decimal a binario trabaja con enteros positivos
+        {
+            string strBinario = " ";
+            return strBinario;
+        }
+
+        public string DecimalBinario(double num)
+        {
+            string binario = "";
+            return binario;
+        }
+
+        public double ValidarNumero(string strNumero)
+        {
+            double numero = 0;
+            return numero;
+        }
+
+        #endregion
+
+        #region Sobrecarga de Operadores
+
+        static public double operator +(Numero n1,Numero n2)
+        {
+            double resultado = 0;
+
+            return resultado;
+        }
+
+        static public double operator -(Numero n1, Numero n2)
+        {
+            double resultado = 0;
+
+            return resultado;
+        }
+
+        static public double operator *(Numero n1, Numero n2)
+        {
+            double resultado = 0;
+
+            return resultado;
+        }
+
+        static public double operator /(Numero n1, Numero n2)
+        {
+            double resultado = 0;
+
+            return resultado;
         }
 
         #endregion
