@@ -15,7 +15,6 @@ namespace Entidades
         public Numero()
         {
             this.numero = 0;
-            new Numero();
         }
 
         public Numero(double numero)
@@ -65,9 +64,17 @@ namespace Entidades
 
         public string DecimalBinario(string numero)//decimal a binario trabaja con enteros positivos
         {
-            int numeroIngresadoInt = Convert.ToInt32(numero);
+            string resultado = "Valor Invalido";
+            double numeroIngresado = Convert.ToDouble(numero);
+            resultado = DecimalBinario(numeroIngresado);
+            return resultado;
+        }
+
+        public string DecimalBinario(double numero)
+        {
+            string resultado = "Valor Invalido";
+            int numeroIngresadoInt = Convert.ToInt32(numero);//si no funciona, probar try parse
             int resto;
-            string resultado = "";
 
             while (numeroIngresadoInt > 1)
             {
@@ -77,14 +84,6 @@ namespace Entidades
             }
             resultado = Convert.ToString(numeroIngresadoInt) + resultado;
             return resultado;
-        }
-
-        public string DecimalBinario(double numero)
-        {
-            string resultado = "";
-            Numero numeroIngresado = new Numero();
-            numeroIngresado.SetNumero = Convert.ToString(numero);
-            return resultado = DecimalBinario(numeroIngresado.numero);
         }
 
         public double ValidarNumero(string strNumero)
