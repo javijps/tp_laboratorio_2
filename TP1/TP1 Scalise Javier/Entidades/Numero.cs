@@ -32,9 +32,9 @@ namespace Entidades
 
         #region Propiedades
 
-        public double SetNumero//unico lugar donde se llama a validar numero
+        public string SetNumero
         {
-            set { this.numero = value; }
+            set { this.numero = ValidarNumero(value); }
         }
 
         #endregion
@@ -43,25 +43,34 @@ namespace Entidades
 
         public string BinarioDecimal(string numero)//binario a decimal. trabaja con enteros positivos
         {
-            string num = "";
-            return num;
+            string resultado = "";
+            Numero numeroIngresado = new Numero();
+            numeroIngresado.SetNumero = numero;
+            //aca se convierte el numero a decimal. y a string para poner en resultado
+            return resultado;
         }
 
-        public string DecimalBinario(string num)//decimal a binario trabaja con enteros positivos
+        public string DecimalBinario(string numero)//decimal a binario trabaja con enteros positivos
         {
-            string strBinario = " ";
-            return strBinario;
+            string resultado = "";
+            Numero numeroIngresado = new Numero();
+            numeroIngresado.SetNumero = numero;
+            //aca algoritmo para convertir el numero a binario.
+            return resultado;
         }
 
-        public string DecimalBinario(double num)
+        public string DecimalBinario(double numero)
         {
-            string binario = "";
-            return binario;
+            string resultado = "";
+            Numero numeroIngresado = new Numero();
+            numeroIngresado.SetNumero = Convert.ToString(numero);
+            return resultado = DecimalBinario(numeroIngresado.numero);
         }
 
         public double ValidarNumero(string strNumero)
         {
             double numero = 0;
+            double.TryParse(strNumero, out numero);
             return numero;
         }
 

@@ -32,7 +32,7 @@ namespace MiCalculadora
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void txtNumero2_TextChanged(object sender, EventArgs e)
@@ -62,13 +62,14 @@ namespace MiCalculadora
 
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
-            Numero numeroIngresado = new Numero(lblResultado.Text);
+            Numero numeroIngresado = new Numero();
+            numeroIngresado.SetNumero = lblResultado.Text;
             lblResultado.Text = numeroIngresado.DecimalBinario(lblResultado.Text);
         }
 
         private void btnConvertitADecimal_Click(object sender, EventArgs e)
         {
-            Numero numeroIngresado = new Numero(lblResultado.Text);
+            Numero numeroIngresado = new Numero();
             lblResultado.Text = numeroIngresado.BinarioDecimal(lblResultado.Text);
         }
 
@@ -81,9 +82,11 @@ namespace MiCalculadora
 
         public static double Operar(string num1, string num2,string operador)
         {
-            Numero numero1 = new Numero(num1);//hacer sobrecarga implicita?
-            Numero numero2 = new Numero(num2);//hacer sobrecarga implicita?
+            Numero numero1 = new Numero();
+            Numero numero2 = new Numero();
             Calculadora calculadora = new Calculadora();
+            numero1.SetNumero = num1;
+            numero2.SetNumero = num2;
             double resultado = calculadora.Operar(numero1, numero2, operador);
             return resultado;
         }
