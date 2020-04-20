@@ -14,7 +14,7 @@ namespace Entidades
 
         public Numero()
         {
-            this.numero = 0;
+            this.SetNumero = 0;
         }
 
         public Numero(double numero)
@@ -40,49 +40,63 @@ namespace Entidades
 
         #region Metodos
 
-        public string BinarioDecimal(string numero)//binario a decimal. trabaja con enteros positivos
+        public string BinarioDecimal(string numero)
         {
             int resto;
             int base1 = 1;
             int numeroDecimal = 0;
-            string resultado = "Valor Invalido";
-            int numeroBinario = Convert.ToInt32(numero);
-
-            if (numeroBinario > 0)
+            string resultado = " ";
+            int numeroIngresado;
+            int.TryParse(numero, out numeroIngresado);
+            
+            if (numeroIngresado > 0)
             {
-                while (numeroBinario > 0)
+                while (numeroIngresado > 0)
                 {
-                    resto = numeroBinario % 10;
-                    numeroBinario = numeroBinario / 10;
+                    resto = numeroIngresado % 10;
+                    numeroIngresado = numeroIngresado / 10;
                     numeroDecimal += resto * base1;
                     base1 = base1 * 2;
                 }
                 resultado = Convert.ToString(numeroDecimal);
+                return resultado;
             }
+            resultado = "Valor Invalido";
             return resultado;
         }
 
-        public string DecimalBinario(string numero)//decimal a binario trabaja con enteros positivos
+        public string DecimalBinario(string numero)
         {
             string resultado = "Valor Invalido";
-            double numeroIngresado = Convert.ToDouble(numero);
-            resultado = DecimalBinario(numeroIngresado);
+            int numeroIngresado;
+         
+            int.TryParse(numero, out numeroIngresado);
+            
+            if (numeroIngresado > 0)
+            {
+                resultado = DecimalBinario(Convert.ToDouble(numeroIngresado));
+            }
             return resultado;
         }
 
         public string DecimalBinario(double numero)
         {
-            string resultado = "Valor Invalido";
-            int numeroIngresadoInt = Convert.ToInt32(numero);//si no funciona, probar try parse
+            string resultado = " ";
+            int numeroIngresadoInt = Convert.ToInt32(numero);
             int resto;
 
-            while (numeroIngresadoInt > 1)
+            if (numeroIngresadoInt > 0)
             {
-                resto = numeroIngresadoInt % 2;
-                resultado = Convert.ToString(resto) + resultado;
-                numeroIngresadoInt /= 2;
+                while (numeroIngresadoInt > 1)
+                {
+                    resto = numeroIngresadoInt % 2;
+                    resultado = Convert.ToString(resto) + resultado;
+                    numeroIngresadoInt /= 2;
+                }
+                resultado = Convert.ToString(numeroIngresadoInt) + resultado;
+                return resultado;
             }
-            resultado = Convert.ToString(numeroIngresadoInt) + resultado;
+            resultado = "Valor Invalido";
             return resultado;
         }
 
@@ -144,6 +158,5 @@ namespace Entidades
             return resultado;
         }
         #endregion
-
     }
 }

@@ -41,36 +41,37 @@
             // 
             // txtNumero1
             // 
+            this.txtNumero1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumero1.Location = new System.Drawing.Point(12, 45);
-            this.txtNumero1.Multiline = true;
             this.txtNumero1.Name = "txtNumero1";
-            this.txtNumero1.Size = new System.Drawing.Size(118, 36);
+            this.txtNumero1.Size = new System.Drawing.Size(118, 35);
             this.txtNumero1.TabIndex = 0;
             this.txtNumero1.TextChanged += new System.EventHandler(this.txtNumero1_TextChanged);
             // 
             // cmbOperador
             // 
-            this.cmbOperador.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbOperador.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbOperador.FormattingEnabled = true;
             this.cmbOperador.IntegralHeight = false;
+            this.cmbOperador.ItemHeight = 26;
             this.cmbOperador.Items.AddRange(new object[] {
             "+",
             "-",
             "*",
             "/"});
-            this.cmbOperador.Location = new System.Drawing.Point(164, 44);
+            this.cmbOperador.Location = new System.Drawing.Point(166, 47);
             this.cmbOperador.MaxDropDownItems = 4;
             this.cmbOperador.Name = "cmbOperador";
-            this.cmbOperador.Size = new System.Drawing.Size(58, 37);
+            this.cmbOperador.Size = new System.Drawing.Size(58, 34);
             this.cmbOperador.TabIndex = 1;
             this.cmbOperador.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // txtNumero2
             // 
+            this.txtNumero2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumero2.Location = new System.Drawing.Point(259, 45);
-            this.txtNumero2.Multiline = true;
             this.txtNumero2.Name = "txtNumero2";
-            this.txtNumero2.Size = new System.Drawing.Size(118, 36);
+            this.txtNumero2.Size = new System.Drawing.Size(118, 35);
             this.txtNumero2.TabIndex = 2;
             this.txtNumero2.TextChanged += new System.EventHandler(this.txtNumero2_TextChanged);
             // 

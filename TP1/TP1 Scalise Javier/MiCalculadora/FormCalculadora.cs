@@ -49,15 +49,7 @@ namespace MiCalculadora
         {
             string operador;
             double resultado;
-
-            if(this.cmbOperador.SelectedItem == null)
-            {
-                operador = "+";       
-            }
-            else
-            {
-                operador = Convert.ToString(cmbOperador.SelectedItem);
-            }
+            operador = Convert.ToString(cmbOperador.SelectedItem);
             resultado = Operar(txtNumero1.Text, txtNumero2.Text, operador);
             this.lblResultado.Text = Convert.ToString(resultado);
         }
@@ -74,14 +66,22 @@ namespace MiCalculadora
 
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
-            Numero numero = new Numero();
-            string resultadoConvertido = numero.DecimalBinario(lblResultado.Text);
-            lblResultado.Text = resultadoConvertido;
+            if(lblResultado.Text != null)
+            {
+                Numero numero = new Numero();
+                string resultadoConvertido = numero.DecimalBinario(lblResultado.Text);
+                lblResultado.Text = resultadoConvertido;
+            }
         }
 
         private void btnConvertitADecimal_Click(object sender, EventArgs e)
         {
-            
+            if (lblResultado.Text != null)
+            {
+                Numero numero = new Numero();
+                string resultadoConvertido = numero.BinarioDecimal(lblResultado.Text);
+                lblResultado.Text = resultadoConvertido;
+            }
         }
 
         public void Limpiar()
