@@ -20,12 +20,12 @@ namespace Entidades
 
         public Numero(double numero)
         {
-            this.numero = numero;
+            this.SetNumero = Convert.ToString(numero);
         }
 
         public Numero(string numero)
         {
-            this.numero = Convert.ToDouble(numero);
+            this.SetNumero = numero;
         }
 
         #endregion
@@ -43,19 +43,39 @@ namespace Entidades
 
         public string BinarioDecimal(string numero)//binario a decimal. trabaja con enteros positivos
         {
-            string resultado = "";
-            Numero numeroIngresado = new Numero();
-            numeroIngresado.SetNumero = numero;
-            //aca se convierte el numero a decimal. y a string para poner en resultado
+            int resto;
+            int base1 = 1;
+            int numeroDecimal = 0;
+            string resultado = "Valor Invalido";
+            int numeroBinario = Convert.ToInt32(numero);
+
+            if (numeroBinario > 0)
+            {
+                while (numeroBinario > 0)
+                {
+                    resto = numeroBinario % 10;
+                    numeroBinario = numeroBinario / 10;
+                    numeroDecimal += resto * base1;
+                    base1 = base1 * 2;
+                }
+                resultado = Convert.ToString(numeroDecimal);
+            }
             return resultado;
         }
 
         public string DecimalBinario(string numero)//decimal a binario trabaja con enteros positivos
         {
+            int numeroIngresadoInt = Convert.ToInt32(numero);
+            int resto;
             string resultado = "";
-            Numero numeroIngresado = new Numero();
-            numeroIngresado.SetNumero = numero;
-            //aca algoritmo para convertir el numero a binario.
+
+            while (numeroIngresadoInt > 1)
+            {
+                resto = numeroIngresadoInt % 2;
+                resultado = Convert.ToString(resto) + resultado;
+                numeroIngresadoInt /= 2;
+            }
+            resultado = Convert.ToString(numeroIngresadoInt) + resultado;
             return resultado;
         }
 
@@ -78,10 +98,14 @@ namespace Entidades
 
         #region Sobrecarga de Operadores
 
-        static public double operator +(Numero n1,Numero n2)
+        static public double operator +(Numero n1, Numero n2)
         {
             double resultado = 0;
 
+            if (!object.Equals(n1, null) && !object.Equals(n2, null))
+            {
+                resultado = n1.numero + n2.numero;
+            }
             return resultado;
         }
 
@@ -89,6 +113,10 @@ namespace Entidades
         {
             double resultado = 0;
 
+            if (!object.Equals(n1, null) && !object.Equals(n2, null))
+            {
+                resultado = n1.numero - n2.numero;
+            }
             return resultado;
         }
 
@@ -96,6 +124,10 @@ namespace Entidades
         {
             double resultado = 0;
 
+            if (!object.Equals(n1, null) && !object.Equals(n2, null))
+            {
+                resultado = n1.numero * n2.numero;
+            }
             return resultado;
         }
 
@@ -103,9 +135,15 @@ namespace Entidades
         {
             double resultado = 0;
 
+            if (!object.Equals(n1, null) && !object.Equals(n2, null))
+            {
+                if (n2.numero != 0)
+                {
+                    resultado = n1.numero / n2.numero;
+                }
+            }
             return resultado;
         }
-
         #endregion
 
     }
