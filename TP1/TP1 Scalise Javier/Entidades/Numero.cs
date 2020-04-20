@@ -12,16 +12,27 @@ namespace Entidades
 
         #region Constructor
 
+        /// <summary>
+        /// Crea una instancia de tipo Numero
+        /// </summary>
         public Numero()
         {
-            this.SetNumero = 0;
+            this.numero = 0;
         }
 
+        /// <summary>
+        /// Crea una instancia del tipo numero e inicializa numero a traves del numero ingresado por parametro
+        /// </summary>
+        /// <param name="numero">numero del tipo double con el cual se inicializara</param>
         public Numero(double numero)
         {
             this.SetNumero = Convert.ToString(numero);
         }
 
+        /// <summary>
+        /// Crea una instancia del tipo numero e inicializa numero a traves del numero ingresado por parametro
+        /// </summary>
+        /// <param name="numero">numero del tipo string con el cual se inicializara</param>
         public Numero(string numero)
         {
             this.SetNumero = numero;
@@ -30,7 +41,9 @@ namespace Entidades
         #endregion
 
         #region Propiedades
-
+        /// <summary>
+        /// Propiedad solo escritura del xxxx numero
+        /// </summary>
         public string SetNumero
         {
             set { this.numero = ValidarNumero(value); }
@@ -40,6 +53,12 @@ namespace Entidades
 
         #region Metodos
 
+        /// <summary>
+        /// Convierte numero binario a decimal, en caso de ser posible
+        /// </summary>
+        /// <param name="numero">Numero a ser convertido</param>
+        /// <returns>Retorna "Valor Invalido" en caso de no haber podido realizar la conversion.Caso contrario
+        /// retorna el numero convertido</returns>
         public string BinarioDecimal(string numero)
         {
             int resto;
@@ -65,6 +84,12 @@ namespace Entidades
             return resultado;
         }
 
+        /// <summary>
+        /// Convierte numero decimal a binario, en caso de ser posible
+        /// </summary>
+        /// <param name="numero">Numero a ser convertido</param>
+        /// <returns>Retorna "Valor Invalido" en caso de no haber podido realizar la conversion.Caso contrario
+        /// retorna el numero convertido</returns>
         public string DecimalBinario(string numero)
         {
             string resultado = "Valor Invalido";
@@ -79,6 +104,12 @@ namespace Entidades
             return resultado;
         }
 
+        /// <summary>
+        /// Convierte numero decimal a binario, en caso de ser posible
+        /// </summary>
+        /// <param name="numero">Numero a ser convertido</param>
+        /// <returns>Retorna "Valor Invalido" en caso de no haber podido realizar la conversion.Caso contrario
+        /// retorna el numero convertido</returns>
         public string DecimalBinario(double numero)
         {
             string resultado = " ";
@@ -100,6 +131,11 @@ namespace Entidades
             return resultado;
         }
 
+        /// <summary>
+        /// Comprueba que el valor recibido sea un numero
+        /// </summary>
+        /// <param name="strNumero">Valor a validar</param>
+        /// <returns>En caso de no validar, retorna 0. Caso contrario, retorna el valor tipo double</returns>
         public double ValidarNumero(string strNumero)
         {
             double numero = 0;
@@ -111,6 +147,12 @@ namespace Entidades
 
         #region Sobrecarga de Operadores
 
+        /// <summary>
+        /// Suma dos objetos de tipo Numero
+        /// </summary>
+        /// <param name="n1">Instancia de Clase Numero</param>
+        /// <param name="n2">Instancia de Clase Numero</param>
+        /// <returns>En caso de no poder realizar la operacion, retorna 0. Caso contrario retorna el resultado</returns>
         static public double operator +(Numero n1, Numero n2)
         {
             double resultado = 0;
@@ -122,6 +164,12 @@ namespace Entidades
             return resultado;
         }
 
+        /// <summary>
+        /// Resta dos objetos de tipo Numero
+        /// </summary>
+        /// <param name="n1">Instancia de Clase Numero</param>
+        /// <param name="n2">Instancia de Clase Numero</param>
+        /// <returns>En caso de no poder realizar la operacion, retorna 0. Caso contrario retorna el resultado</returns>
         static public double operator -(Numero n1, Numero n2)
         {
             double resultado = 0;
@@ -133,6 +181,12 @@ namespace Entidades
             return resultado;
         }
 
+        /// <summary>
+        /// Multiplica dos objetos de tipo Numero
+        /// </summary>
+        /// <param name="n1">Instancia de Clase Numero</param>
+        /// <param name="n2">Instancia de Clase Numero</param>
+        /// <returns>En caso de no poder realizar la operacion, retorna 0. Caso contrario retorna el resultado</returns>
         static public double operator *(Numero n1, Numero n2)
         {
             double resultado = 0;
@@ -144,9 +198,16 @@ namespace Entidades
             return resultado;
         }
 
+        /// <summary>
+        /// Divide dos objetos de tipo Numero y valida que el divisor no sea 0
+        /// </summary>
+        /// <param name="n1">Instancia de Clase Numero</param>
+        /// <param name="n2">Instancia de Clase Numero</param>
+        /// <returns>En caso de no poder realizar la operacion, retorna 0. Caso contrario retorna el resultado</returns>
+
         static public double operator /(Numero n1, Numero n2)
         {
-            double resultado = 0;
+            double resultado = double.MinValue; ;
 
             if (!object.Equals(n1, null) && !object.Equals(n2, null))
             {
