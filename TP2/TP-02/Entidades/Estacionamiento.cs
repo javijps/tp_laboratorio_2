@@ -53,17 +53,26 @@ namespace Entidades
             sb.AppendFormat("Tenemos {0} lugares ocupados de un total de {1} disponibles\n", c.vehiculos.Count, c.espacioDisponible);
             sb.AppendLine("");
             foreach (Vehiculo v in c.vehiculos)
-            {//asi me va a mostrar todos?
+            {
                 switch (tipo)
                 {
                     case ETipo.Camioneta:
-                        sb.AppendLine(v.Mostrar());
+                        if (v is Camioneta)
+                        {
+                            sb.AppendLine(v.Mostrar());
+                        }
                         break;
                     case ETipo.Moto:
-                        sb.AppendLine(v.Mostrar());
+                        if (v is Moto)
+                        {
+                            sb.AppendLine(v.Mostrar());
+                        }
                         break;
                     case ETipo.Automovil:
-                        sb.AppendLine(v.Mostrar());
+                        if (v is Automovil)
+                        {
+                            sb.AppendLine(v.Mostrar());
+                        }
                         break;
                     default:
                         sb.AppendLine(v.Mostrar());
@@ -107,12 +116,10 @@ namespace Entidades
             {
                 if (v==p)
                 {
-                    c.vehiculos.Remove(p);
-                    Console.WriteLine("vehiculo removido!\n");
-                    return c;
+                        Console.WriteLine("vehiculo removido!\n");
+                        return c;
                 }
-            }//INFORMAR PARA PROBAR?
-
+            }
             Console.WriteLine("vehiculo no existe en la lista!!\n");
 
             return c;

@@ -8,11 +8,17 @@ namespace Entidades
 {
     public class Camioneta: Vehiculo
     {
+        #region Constructores
+
         public Camioneta(EMarca marca, string chasis, ConsoleColor color)
             : base(chasis, marca, color)
         {
 
         }
+
+        #endregion
+
+        #region Propiedades
         /// <summary>
         /// Las camionetas son grandes
         /// </summary>
@@ -23,6 +29,10 @@ namespace Entidades
                 return ETamanio.Grande;
             }
         }
+
+        #endregion
+
+        #region Métodos
 
         public override string Mostrar()
         {
@@ -36,5 +46,7 @@ namespace Entidades
 
             return sb.ToString();
         }
+
+        #endregion
     }
 }

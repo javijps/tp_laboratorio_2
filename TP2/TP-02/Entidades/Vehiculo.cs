@@ -71,7 +71,7 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator ==(Vehiculo v1, Vehiculo v2)
         {
-            if(String.Compare(v1.chasis,v2.chasis)==0)
+            if(v1.chasis==v2.chasis)
             {
                 return true;
             }
@@ -88,6 +88,16 @@ namespace Entidades
             return !(v1 == v2);
         }
 
+        public override bool Equals(object obj)
+        {
+            bool rta = false;
+
+            if (obj is Vehiculo)
+            {
+                rta = this == ((Vehiculo)obj);
+            }
+            return rta;
+        }
         #endregion
 
         #region Enumerados
