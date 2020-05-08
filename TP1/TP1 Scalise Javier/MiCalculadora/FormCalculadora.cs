@@ -20,31 +20,6 @@ namespace MiCalculadora
             
         }
 
-        private void FormCalculadora_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNumero1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txtNumero2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblResultado_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         /// <summary>
         /// Boton Operar. Realiza Operaciones con los valores ingresados en txtNumero1 y txtNumero2 a traves
         /// del Metodo Operar asignando el resultado a lblResultado.

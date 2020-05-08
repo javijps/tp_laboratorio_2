@@ -17,7 +17,8 @@ namespace Entidades
         /// </summary>
         public Numero()
         {
-            this.numero = 0;
+            new Numero(0);
+          //this.numero = 0;
         }
 
         /// <summary>
@@ -26,7 +27,8 @@ namespace Entidades
         /// <param name="numero">numero del tipo double con el cual se inicializara</param>
         public Numero(double numero)
         {
-            this.SetNumero = Convert.ToString(numero);
+            new Numero(Convert.ToString(numero));
+          //this.SetNumero = Convert.ToString(numero);
         }
 
         /// <summary>

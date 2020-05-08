@@ -46,7 +46,6 @@
             this.txtNumero1.Name = "txtNumero1";
             this.txtNumero1.Size = new System.Drawing.Size(118, 35);
             this.txtNumero1.TabIndex = 0;
-            this.txtNumero1.TextChanged += new System.EventHandler(this.txtNumero1_TextChanged);
             // 
             // cmbOperador
             // 
@@ -64,7 +63,6 @@
             this.cmbOperador.Name = "cmbOperador";
             this.cmbOperador.Size = new System.Drawing.Size(58, 34);
             this.cmbOperador.TabIndex = 1;
-            this.cmbOperador.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // txtNumero2
             // 
@@ -73,7 +71,6 @@
             this.txtNumero2.Name = "txtNumero2";
             this.txtNumero2.Size = new System.Drawing.Size(118, 35);
             this.txtNumero2.TabIndex = 2;
-            this.txtNumero2.TextChanged += new System.EventHandler(this.txtNumero2_TextChanged);
             // 
             // lblResultado
             // 
@@ -85,7 +82,6 @@
             this.lblResultado.TabIndex = 3;
             this.lblResultado.Text = "0";
             this.lblResultado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblResultado.Click += new System.EventHandler(this.lblResultado_Click);
             // 
             // btnOperar
             // 
@@ -157,7 +153,6 @@
             this.Name = "FormCalculadora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora de Scalise Javier del curso  2°A";
-            this.Load += new System.EventHandler(this.FormCalculadora_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
