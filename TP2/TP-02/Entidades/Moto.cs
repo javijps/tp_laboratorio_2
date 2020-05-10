@@ -8,17 +8,7 @@ namespace Entidades
 {
     public class Moto: Vehiculo
     {
-        #region Constructores
-
-        public Moto(EMarca marca, string chasis, ConsoleColor color)
-            :base(chasis,marca,color)
-        {
-
-        }
-
-        #endregion
-
-        #region Propiedades
+        #region "Propiedades"
 
         /// <summary>
         /// Las motos son chicas
@@ -33,8 +23,28 @@ namespace Entidades
 
         #endregion
 
-        #region Métodos
+        #region "Constructores"
 
+        /// <summary>
+        /// Constructo publico de la Clase Moto.
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <param name="chasis"></param>
+        /// <param name="color"></param>
+        public Moto(EMarca marca, string chasis, ConsoleColor color)
+            :base(chasis,marca,color)
+        {
+
+        }
+
+        #endregion
+
+        #region "Métodos"
+
+        /// <summary>
+        /// Publica los datos de Moto.
+        /// </summary>
+        /// <returns></returns>
         public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
@@ -43,7 +53,7 @@ namespace Entidades
             sb.AppendLine(base.Mostrar());
             sb.AppendFormat("TAMAÑO : {0}", this.Tamanio);
             sb.AppendLine("");
-            sb.AppendLine("---------------------");//revisar si queda bien
+            sb.AppendLine("---------------------");
 
             return sb.ToString();
         }

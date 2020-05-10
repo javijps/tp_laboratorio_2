@@ -11,29 +11,16 @@ namespace Entidades
     {
         private ETipo tipo;
 
-        #region Constructores
+        #region "Enumerados"
 
-        /// <summary>
-        /// Por defecto, TIPO será Monovolumen
-        /// </summary>
-        /// <param name="marca"></param>
-        /// <param name="chasis"></param>
-        /// <param name="color"></param>
-        public Automovil(EMarca marca, string chasis, ConsoleColor color)
-            :this(marca,chasis,color,ETipo.Monovolumen)
+        public enum ETipo
         {
-
-        }
-
-        public Automovil(EMarca marca, string chasis, ConsoleColor color,ETipo tipo)
-                : base(chasis, marca, color)
-        {
-            this.tipo = tipo;
+            Monovolumen, Sedan
         }
 
         #endregion
 
-        #region Propiedades
+        #region "Propiedades"
 
         /// <summary>
         /// Los automoviles son medianos
@@ -48,8 +35,41 @@ namespace Entidades
 
         #endregion
 
-        #region Métodos
+        #region "Constructores"
 
+        /// <summary>
+        /// Constructor publico de la Clase Automovil. Inicializara todos sus atributos con los valores pasados por parametro.
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <param name="chasis"></param>
+        /// <param name="color"></param>
+        /// <param name="tipo"></param>
+        public Automovil(EMarca marca, string chasis, ConsoleColor color, ETipo tipo)
+        : base(chasis, marca, color)
+        {
+            this.tipo = tipo;
+        }
+
+        /// <summary>
+        /// Por defecto, TIPO será Monovolumen
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <param name="chasis"></param>
+        /// <param name="color"></param>
+        public Automovil(EMarca marca, string chasis, ConsoleColor color)
+            :this(marca,chasis,color,ETipo.Monovolumen)
+        {
+
+        }
+
+        #endregion
+
+        #region "Métodos"
+
+        /// <summary>
+        /// Publica todos los datos de Automovil.
+        /// </summary>
+        /// <returns></returns>
         public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
@@ -60,20 +80,12 @@ namespace Entidades
             sb.AppendLine(this.Tamanio.ToString());
             sb.Append("TIPO : ");
             sb.AppendLine(this.tipo.ToString());
-            sb.AppendLine("---------------------");//revisar si se ve bien
+            sb.AppendLine("---------------------");
 
             return sb.ToString();
         }
 
         #endregion
 
-        #region Enumerados
-
-        public enum ETipo
-        {
-            Monovolumen, Sedan
-        }
-
-        #endregion
     }
 }

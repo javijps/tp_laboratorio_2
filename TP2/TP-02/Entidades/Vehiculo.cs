@@ -15,25 +15,42 @@ namespace Entidades
         private string chasis;
         private ConsoleColor color;
 
+        #region "Enumerados"
+        public enum EMarca
+        {
+            Chevrolet, Ford, Renault, Toyota, BMW, Honda
+        }
+        public enum ETamanio
+        {
+            Chico, Mediano, Grande
+        }
 
-        #region Constructores
+        #endregion
 
+        #region "Propiedades"
+
+        /// <summary>
+        /// ReadOnly: Retornará el tamaño
+        /// </summary>
+        protected abstract ETamanio Tamanio
+        { get; }
+
+        #endregion
+
+        #region "Constructores"
+
+        /// <summary>
+        /// Constructor publico de la Clase Vehiculo. Inicializara todos sus atributos con los valores pasados por parametro.
+        /// </summary>
+        /// <param name="chasis"></param>
+        /// <param name="marca"></param>
+        /// <param name="color"></param>
         public Vehiculo(string chasis, EMarca marca, ConsoleColor color)
         {
             this.chasis = chasis;
             this.marca = marca;
             this.color = color;
         }
-        #endregion
-
-        #region Propiedades
-
-        /// <summary>
-        /// ReadOnly: Retornará el tamaño
-        /// </summary>
-        protected abstract ETamanio Tamanio 
-        { get; }
-
         #endregion
 
         #region Métodos
@@ -44,13 +61,17 @@ namespace Entidades
         /// <returns></returns>
         public virtual string Mostrar()
         {
-            return (string)this;//CHEQUEAR
+            return (string)this;
         }
 
         #endregion
 
-        #region Sobrecargas
+        #region "Sobrecargas"
 
+        /// <summary>
+        /// Sobrecarga explicita de string.
+        /// </summary>
+        /// <param name="p"></param>
         public static explicit operator string(Vehiculo p)
         {
             StringBuilder sb = new StringBuilder();
@@ -58,10 +79,30 @@ namespace Entidades
             sb.AppendFormat("CHASIS: {0}\r\n", p.chasis);
             sb.AppendFormat("MARCA : {0}\r\n", p.marca.ToString());
             sb.AppendFormat("COLOR : {0}\r\n", p.color.ToString());
-            sb.AppendLine("---------------------");//revisar si se ve bien
+            sb.AppendLine("---------------------");
 
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Sobrecarga de Equals.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            bool rta = false;
+
+            if (obj is Vehiculo)
+            {
+                rta = this == ((Vehiculo)obj);
+            }
+            return rta;
+        }
+
+        #endregion
+
+        #region "Operadores"
 
         /// <summary>
         /// Dos vehiculos son iguales si comparten el mismo chasis
@@ -75,7 +116,7 @@ namespace Entidades
             {
                 return true;
             }
-            return false;//reemplazar con equals?
+            return false;
         }
         /// <summary>
         /// Dos vehiculos son distintos si su chasis es distinto
@@ -88,29 +129,8 @@ namespace Entidades
             return !(v1 == v2);
         }
 
-        public override bool Equals(object obj)
-        {
-            bool rta = false;
-
-            if (obj is Vehiculo)
-            {
-                rta = this == ((Vehiculo)obj);
-            }
-            return rta;
-        }
         #endregion
 
-        #region Enumerados
-        public enum EMarca
-        {
-            Chevrolet, Ford, Renault, Toyota, BMW, Honda
-        }
-        public enum ETamanio
-        {
-            Chico, Mediano, Grande
-        }
-
-        #endregion
     }
 }
     

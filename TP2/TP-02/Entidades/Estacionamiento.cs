@@ -14,11 +14,29 @@ namespace Entidades
         private List<Vehiculo> vehiculos;
         private int espacioDisponible;
 
+        #region "Enumerados"
+
+        public enum ETipo
+        {
+            Moto, Automovil, Camioneta, Todos
+        }
+
+        #endregion
+
         #region "Constructores"
+
+        /// <summary>
+        /// Constructor privado de la Clase Estacionamiento. Inicializa la lista de tipo vehiculos.
+        /// </summary>
         private Estacionamiento()
         {
             this.vehiculos = new List<Vehiculo>();
         }
+
+        /// <summary>
+        /// Constructor publico de la Clase Estacionamiento. Recibe como parametro espacio disponible e inicializa el atributo con ese valor.
+        /// </summary>
+        /// <param name="espacioDisponible"></param>
         public Estacionamiento(int espacioDisponible)
             :this()
         {
@@ -79,7 +97,6 @@ namespace Entidades
                         break;
                 }
             }
-
             return sb.ToString();
         }
         #endregion
@@ -95,9 +112,8 @@ namespace Entidades
         {
             foreach (Vehiculo v in c.vehiculos)
             {
-                if (v==p || c.vehiculos.Count == c.espacioDisponible)//reemplazar con equals?
+                if (v==p || c.vehiculos.Count == c.espacioDisponible)
                 {
-                    Console.WriteLine("vehiculo existente! o el estacionamiento esta lleno!\n");
                     return c;
                 }
             }
@@ -114,25 +130,15 @@ namespace Entidades
         {
             foreach (Vehiculo v in c.vehiculos)
             {
-                if (v==p)
+                if (v == p)
                 {
-                        Console.WriteLine("vehiculo removido!\n");
-                        return c;
+                    c.vehiculos.Remove(p);
+                    return c;
                 }
             }
-            Console.WriteLine("vehiculo no existe en la lista!!\n");
-
             return c;
         }
         #endregion
 
-        #region "Enumerados"
-
-        public enum ETipo
-        {
-            Moto, Automovil, Camioneta, Todos
-        }
-
-        #endregion
     }
 }

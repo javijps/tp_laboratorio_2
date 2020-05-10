@@ -8,17 +8,7 @@ namespace Entidades
 {
     public class Camioneta: Vehiculo
     {
-        #region Constructores
-
-        public Camioneta(EMarca marca, string chasis, ConsoleColor color)
-            : base(chasis, marca, color)
-        {
-
-        }
-
-        #endregion
-
-        #region Propiedades
+        #region "Propiedades"
         /// <summary>
         /// Las camionetas son grandes
         /// </summary>
@@ -32,8 +22,28 @@ namespace Entidades
 
         #endregion
 
-        #region Métodos
+        #region "Constructores"
 
+        /// <summary>
+        /// Constructor publico de la Clase Camioneta
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <param name="chasis"></param>
+        /// <param name="color"></param>
+        public Camioneta(EMarca marca, string chasis, ConsoleColor color)
+            : base(chasis, marca, color)
+        {
+
+        }
+
+        #endregion
+
+        #region "Métodos"
+
+        /// <summary>
+        /// Publica los datos de Camioneta.
+        /// </summary>
+        /// <returns></returns>
         public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
