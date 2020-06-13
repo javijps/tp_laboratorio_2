@@ -10,12 +10,12 @@ namespace Archivos
     {
         public bool Guardar(string archivo, T datos)
         {
+            //guarda con el tostring()
             return false;
         }
 
         public bool Leer(string archivo, T datos) //out
         {
-            //            datos = new T id;
             return false;
         }
     }

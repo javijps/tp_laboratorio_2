@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public abstract class Universitario : Persona
+    public abstract class Universitario : Persona //REVISAR SI ESTAN BIEN LAS IGUALDADES. CONSTRUCTOR POR DEFECTO?. TITULO SOBRECARGAS.DOC
     {
         int legajo;
 
@@ -76,3 +76,4 @@ namespace Entidades
         #endregion
     }
 }
+

@@ -10,7 +10,17 @@ namespace Clases_Instanciables
 {
     public sealed class Profesor : Universitario
     {
-        private Queue<Universidad.EClases> clasesDelDia;
+        /*-REVISAR CONSTRUCTORES
+         *-HACER ASIGNACION DE MATERIAS CON RANDOM, VER RELACION CON ENUMERADO
+         *-RANDOMCLASES()
+         *-ESTA BIEN EL FOREACH DE PARTICIPAR EN CLASE?
+         *-ESTA BIEN EL CONTAINS DE == 
+         *-TITULO SOBRECARGAS
+         *-DOC
+         */
+
+
+        private Queue<Universidad.EClases> clasesDelDia;//FIFO. COLA
         private static Random random;
 
         #region "Constructores"
@@ -23,15 +33,14 @@ namespace Clases_Instanciables
         public Profesor()
             :base()
         {
-            this.clasesDelDia = new Queue<Universidad.EClases>();
-            //asignar clases randomClases()
 
         }
 
         public Profesor(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad)
             :base(id,nombre,apellido,dni,nacionalidad)
         {
-
+            this.clasesDelDia = new Queue<Universidad.EClases>();
+            this._randomClases();
         }
 
 
@@ -42,17 +51,34 @@ namespace Clases_Instanciables
 
         private void _randomClases()
         {
+            Profesor.random.Next();// con el enumerado clases
 
+
+            //asigna 2 clases al azar
         }
 
         protected override string MostrarDatos()
         {
-            return base.MostrarDatos();
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(base.MostrarDatos());
+            sb.Append(this.ParticiparEnClase());
+
+            return sb.ToString();
         }
 
         protected override string ParticiparEnClase()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("CLASES DEL DIA: ");
+
+            foreach (Universidad.EClases item in this.clasesDelDia)
+            {
+                sb.AppendLine(item.ToString());
+            }
+            return sb.ToString();
+
         }
 
         #endregion
@@ -61,7 +87,7 @@ namespace Clases_Instanciables
 
         public static bool operator ==(Profesor i, Universidad.EClases clase)
         {
-            return false;
+            return i.clasesDelDia.Contains(clase);//chequear
         }
 
         public static bool operator !=(Profesor i, Universidad.EClases clase)
@@ -75,7 +101,7 @@ namespace Clases_Instanciables
 
         public override string ToString()
         {
-            return base.ToString();
+            return this.MostrarDatos();
         }
 
         #endregion

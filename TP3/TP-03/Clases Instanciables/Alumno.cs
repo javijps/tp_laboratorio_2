@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Clases_Instanciables
 {
-    public sealed class Alumno : Universitario
+    public sealed class Alumno : Universitario //titulo de sobrecarga, DOC, REVISAR LOGICA DE == Y != Y SI MUESTRA DATOS OK
     {
         private Universidad.EClases claseQueToma;
         private EEstadoCuenta estadoCuenta;
@@ -15,25 +15,25 @@ namespace Clases_Instanciables
         #region "Constructores"
 
         public Alumno()
-            :base()
+            : base()
         {
 
         }
 
         public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, Universidad.EClases claseQueToma)
-            :base(id,nombre,apellido,dni,nacionalidad)
+            : base(id, nombre, apellido, dni, nacionalidad)
         {
             this.claseQueToma = claseQueToma;
         }
 
-        public Alumno(int id, 
-                      string nombre, 
-                      string apellido, 
-                      string dni, 
-                      ENacionalidad nacionalidad, 
+        public Alumno(int id,
+                      string nombre,
+                      string apellido,
+                      string dni,
+                      ENacionalidad nacionalidad,
                       Universidad.EClases claseQueToma,
                       EEstadoCuenta estadoCuenta)
-            : this(id, nombre, apellido, dni, nacionalidad,claseQueToma)
+            : this(id, nombre, apellido, dni, nacionalidad, claseQueToma)
         {
             this.estadoCuenta = estadoCuenta;
         }
@@ -45,12 +45,23 @@ namespace Clases_Instanciables
 
         protected override string ParticiparEnClase()
         {
-            return "";
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("TOMA CLASE DE: ");
+            sb.AppendLine(this.claseQueToma.ToString());
+
+            return sb.ToString();
         }
 
         protected override string MostrarDatos()
         {
-            return base.MostrarDatos();
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(base.MostrarDatos());
+            sb.Append("ESTADO DE CUENTA: ");
+            sb.Append(this.ParticiparEnClase());
+
+            return sb.ToString();
         }
 
         #endregion
@@ -59,12 +70,12 @@ namespace Clases_Instanciables
 
         public static bool operator ==(Alumno a, Universidad.EClases clase)
         {
-            return false;
+            return (!(a != clase) && a.estadoCuenta != EEstadoCuenta.Deudor);//ESTA BIEN ?
         }
 
         public static bool operator !=(Alumno a, Universidad.EClases clase)
         {
-            return false;
+            return a.claseQueToma != clase;
         }
 
         #endregion
@@ -73,21 +84,12 @@ namespace Clases_Instanciables
 
         public override string ToString()
         {
-            return base.ToString();
+            return this.MostrarDatos();
         }
 
         #endregion
 
-
-
-
-
-
-
-
-
-
-
+        #region "Enumerado"
 
         public enum EEstadoCuenta
         {
@@ -95,5 +97,7 @@ namespace Clases_Instanciables
             Deudor,
             Becado
         }
+
+        #endregion
     }
 }
