@@ -8,8 +8,21 @@ namespace Excepciones
 {
     public class SinProfesorException : Exception
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public SinProfesorException()
-            :base()
+            :this("No hay profesor para la clase")
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mensaje"></param>
+        public SinProfesorException(string mensaje)
+            :base(mensaje)
         {
 
         }

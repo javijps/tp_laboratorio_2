@@ -8,26 +8,42 @@ namespace Excepciones
 {
     public class DniInvalidoException : Exception
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public DniInvalidoException()
-            : base()
+            : this("DNI inválido.")
         {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mensaje"></param>
         public DniInvalidoException(string mensaje)
             :base(mensaje)
         {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mensaje"></param>
+        /// <param name="innerException"></param>
         public DniInvalidoException(string mensaje, Exception innerException)
             : base(mensaje, innerException)
         {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="innerException"></param>
         public DniInvalidoException(Exception innerException)
-            : this("default", innerException)
+            : base("DNI inválido.", innerException)
         {
 
         }

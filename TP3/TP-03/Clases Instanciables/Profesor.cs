@@ -25,17 +25,31 @@ namespace Clases_Instanciables
 
         #region "Constructores"
 
+        /// <summary>
+        /// 
+        /// </summary>
         static Profesor()
         {
             Profesor.random = new Random();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Profesor()
             :base()
         {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
         public Profesor(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad)
             :base(id,nombre,apellido,dni,nacionalidad)
         {
@@ -44,11 +58,13 @@ namespace Clases_Instanciables
         }
 
 
-
         #endregion
 
         #region "Métodos"
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void _randomClases()
         {
             Profesor.random.Next();// con el enumerado clases
@@ -57,6 +73,10 @@ namespace Clases_Instanciables
             //asigna 2 clases al azar
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected override string MostrarDatos()
         {
             StringBuilder sb = new StringBuilder();
@@ -67,6 +87,10 @@ namespace Clases_Instanciables
             return sb.ToString();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected override string ParticiparEnClase()
         {
             StringBuilder sb = new StringBuilder();
@@ -85,11 +109,23 @@ namespace Clases_Instanciables
 
         #region "Sobrecarga de /////"
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i"></param>
+        /// <param name="clase"></param>
+        /// <returns></returns>
         public static bool operator ==(Profesor i, Universidad.EClases clase)
         {
             return i.clasesDelDia.Contains(clase);//chequear
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i"></param>
+        /// <param name="clase"></param>
+        /// <returns></returns>
         public static bool operator !=(Profesor i, Universidad.EClases clase)
         {
             return !(i == clase);
@@ -99,6 +135,10 @@ namespace Clases_Instanciables
 
         #region "Sobrecarga de /////"
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return this.MostrarDatos();

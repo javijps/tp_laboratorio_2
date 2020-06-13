@@ -18,27 +18,33 @@ namespace Clases_Instanciables
          * -PROPIEDADES EN CONSTRUCTORES?
          */
 
-
-
         private List <Alumno> alumnos;
         private Universidad.EClases clase;
         private Profesor instructor;
 
         #region "Propiedades"
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public List<Alumno> Alumnos 
         {
             get { return this.alumnos; }
             set { this.alumnos = value; } 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Universidad.EClases Clase
         {
             get { return this.clase; }
             set { this.clase = value; }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public Profesor Instructor
         {
             get { return this.instructor; }
@@ -49,11 +55,19 @@ namespace Clases_Instanciables
 
         #region "Constructores"
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Jornada()
         {
             this.Alumnos = new List<Alumno>();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="clase"></param>
+        /// <param name="instructor"></param>
         public Jornada(Universidad.EClases clase, Profesor instructor)
             :this()
         {
@@ -65,6 +79,12 @@ namespace Clases_Instanciables
 
         #region "Métodos"
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="jornada"></param>
+        /// <returns></returns>
+
         public static bool Guardar(Jornada jornada)
         {
             Texto txt = new Texto();
@@ -72,6 +92,10 @@ namespace Clases_Instanciables
             return txt.Guardar("JORNADATEXTO.txt",jornada.ToString());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static string Leer()
         {
             Texto txt = new Texto();
@@ -87,6 +111,12 @@ namespace Clases_Instanciables
 
         #region "Sobrecarga de /////"
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static bool operator ==(Jornada j, Alumno a)
         {
             foreach (Alumno item in j.alumnos)
@@ -99,11 +129,23 @@ namespace Clases_Instanciables
             return false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static bool operator !=(Jornada j, Alumno a)
         {
             return !(j == a);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static Jornada operator +(Jornada j, Alumno a)
         {
             if(j!=a)
@@ -117,6 +159,10 @@ namespace Clases_Instanciables
 
         #region "Sobrecarga de /////"
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

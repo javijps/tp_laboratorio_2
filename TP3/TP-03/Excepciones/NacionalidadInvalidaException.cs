@@ -8,12 +8,19 @@ namespace Excepciones
 {
     public class NacionalidadInvalidaException : Exception
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public NacionalidadInvalidaException()
-            : base()
+            : this("La nacionalidad no se condice con el número de DNI")
         {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mensaje"></param>
         public NacionalidadInvalidaException(string mensaje)
             :base(mensaje)
         {

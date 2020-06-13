@@ -27,34 +27,50 @@ namespace Clases_Instanciables
 
         #region "Propiedades"
 
-        public List<Alumno> Alumnos 
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<Alumno> Alumnos
         {
             get { return this.alumnos; }
-            set { this.alumnos = value; } 
+            set { this.alumnos = value; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public List<Jornada> Jornada
         {
             get { return this.jornada; }
             set { this.jornada = value; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public List<Profesor> Profesores
         {
             get { return this.profesores; }
             set { this.profesores = value; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public Jornada this[int i]
         {
             get { return this.jornada[i]; }//ESTA BIEN?
-            set { this.jornada[i] = value ; }
+            set { this.jornada[i] = value; }
         }
 
         #endregion
 
         #region "Constructores"
-
+        /// <summary>
+        /// 
+        /// </summary>
         public Universidad()
         {
             this.alumnos = new List<Alumno>();
@@ -66,6 +82,11 @@ namespace Clases_Instanciables
 
         #region "Métodos"
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="uni"></param>
+        /// <returns></returns>
         public static bool Guardar(Universidad uni)
         {//XML
          //tiene que guardar todos los datos de la universidad, las 3 listas y todos los datos de cada elemento de cada lista
@@ -73,9 +94,12 @@ namespace Clases_Instanciables
             Xml<Universidad> xml = new Xml<Universidad>();
 
             return xml.Guardar("ArchivoUniversidad.xml", uni);
-         
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static Universidad Leer()// CAMBIAR AL HACER LEER DE XML
         {
             Xml<Universidad> xml = new Xml<Universidad>();
@@ -87,6 +111,11 @@ namespace Clases_Instanciables
             return u;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="uni"></param>
+        /// <returns></returns>
         private string MostrarDatos(Universidad uni)
         {
             StringBuilder sb = new StringBuilder();
@@ -110,7 +139,6 @@ namespace Clases_Instanciables
         }
         #endregion
 
-
         #region "Sobrecarga de ///////"
 
         public override string ToString()//revisar
@@ -127,21 +155,45 @@ namespace Clases_Instanciables
             return u.alumnos.Contains(a);//esta bien?
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static bool operator !=(Universidad u, Alumno a)
         {
-            return !(u==a);
+            return !(u == a);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public static bool operator ==(Universidad u, Profesor i)
         {
             return u.profesores.Contains(i);//esta bien?
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public static bool operator !=(Universidad u, Profesor i)
         {
             return !(u == i);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="clase"></param>
+        /// <returns></returns>
         public static Profesor operator ==(Universidad u, Universidad.EClases clase)
         {
             foreach (Profesor item in u.Profesores)
@@ -154,6 +206,12 @@ namespace Clases_Instanciables
             throw new SinProfesorException();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="clase"></param>
+        /// <returns></returns>
         public static Profesor operator !=(Universidad u, Universidad.EClases clase)
         {
             Profesor p = null;//NO ME CIERRA EL NULL
@@ -169,9 +227,15 @@ namespace Clases_Instanciables
             return p;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static Universidad operator +(Universidad u, Alumno a)
         {
-            if(u!=a)
+            if (u != a)
             {
                 u.alumnos.Add(a);
             }
@@ -182,15 +246,27 @@ namespace Clases_Instanciables
             return u;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public static Universidad operator +(Universidad u, Profesor i)
         {
-            if(u!=i)
+            if (u != i)
             {
                 u.profesores.Add(i);
             }
             return u;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="clase"></param>
+        /// <returns></returns>
         public static Universidad operator +(Universidad u, Universidad.EClases clase)
         {
             Profesor p = u == clase;
@@ -212,6 +288,11 @@ namespace Clases_Instanciables
 
         #endregion
 
+        #region Enumerado
+
+        /// <summary>
+        /// 
+        /// </summary>
         public enum EClases
         {
             Programacion,
@@ -219,5 +300,7 @@ namespace Clases_Instanciables
             Legislacion,
             SPD
         }
+
+        #endregion
     }
 }

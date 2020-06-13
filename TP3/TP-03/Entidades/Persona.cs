@@ -18,6 +18,9 @@ namespace Entidades
 
         #region "Propiedades"
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string Nombre
         {
             get { return this.nombre; }
@@ -31,11 +34,14 @@ namespace Entidades
             }
         }
 
-        public string Apellido 
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Apellido
         {
             get { return this.apellido; }
 
-            set 
+            set
             {
                 if (ValidarNombreApellido(value) != null)
                 {
@@ -44,31 +50,52 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int DNI
         {
             get { return this.dni; }
 
             set { this.dni = ValidarDni(this.Nacionalidad, value); }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ENacionalidad Nacionalidad
         {
             get { return this.nacionalidad; }
 
             set { this.nacionalidad = value; }
         }
-        public string StringToDNI 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string StringToDNI
         {
-            set { this.dni = ValidarDni(this.Nacionalidad, value); } 
+            set { this.dni = ValidarDni(this.Nacionalidad, value); }
         }
 
         #endregion
 
         #region "Constructores"
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Persona()
         {
             //para que el constructor por defecto?
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="nacionalidad"></param>
         public Persona(string nombre, string apellido, ENacionalidad nacionalidad)
         {
             this.Nombre = nombre;
@@ -76,12 +103,26 @@ namespace Entidades
             this.Nacionalidad = nacionalidad;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
         public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad)
-            :this(nombre, apellido, nacionalidad)
+            : this(nombre, apellido, nacionalidad)
         {
             this.DNI = dni;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad)
             : this(nombre, apellido, nacionalidad)
         {
@@ -92,13 +133,19 @@ namespace Entidades
 
         #region "Métodos"
 
-        private int ValidarDni(ENacionalidad nacionalidad,int dato)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nacionalidad"></param>
+        /// <param name="dato"></param>
+        /// <returns></returns>
+        private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {
-            switch(nacionalidad)
+            switch (nacionalidad)
             {
                 case ENacionalidad.Argentino:
                     {
-                        if(dato < 1 || dato > 89999999)
+                        if (dato < 1 || dato > 89999999)
                         {
                             throw new NacionalidadInvalidaException();
                         }
@@ -116,28 +163,39 @@ namespace Entidades
             return dato;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nacionalidad"></param>
+        /// <param name="dato"></param>
+        /// <returns></returns>
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
             int dni;
 
-            if(dato.Length < 1 || dato.Length >9)
+            if (dato.Length < 1 || dato.Length > 9)
             {
                 throw new DniInvalidoException();
             }
 
-            if(!Int32.TryParse(dato,out dni))
+            if (!Int32.TryParse(dato, out dni))
             {
                 throw new DniInvalidoException();
             }
 
-            return ValidarDni(nacionalidad,dni);
+            return ValidarDni(nacionalidad, dni);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dato"></param>
+        /// <returns></returns>
         public string ValidarNombreApellido(string dato)
         {
             Regex r = new Regex("^[a-zA-Z]+$");
 
-            if(r.IsMatch(dato))
+            if (r.IsMatch(dato))
             {
                 return dato;
             }
@@ -148,6 +206,10 @@ namespace Entidades
 
         #region "Sobrecarga de " //renombrar
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -164,10 +226,11 @@ namespace Entidades
 
         #endregion
 
-
-
         #region "Enumerado"
 
+        /// <summary>
+        /// 
+        /// </summary>
         public enum ENacionalidad
         {
             Argentino,
