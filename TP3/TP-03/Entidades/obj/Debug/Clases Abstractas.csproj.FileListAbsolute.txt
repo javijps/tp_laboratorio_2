@@ -1,0 +1,9 @@
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\bin\Debug\Entidades.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\obj\Debug\Clases Abstractas.csprojAssemblyReference.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\obj\Debug\Clases Abstractas.csproj.CoreCompileInputs.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\obj\Debug\Entidades.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\bin\Debug\Excepciones.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\bin\Debug\Excepciones.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\obj\Debug\Clases Abstractas.csproj.CopyComplete

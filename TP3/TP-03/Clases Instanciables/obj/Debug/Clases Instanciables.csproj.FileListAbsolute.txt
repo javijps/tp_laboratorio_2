@@ -1,0 +1,13 @@
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\obj\Debug\Clases Instanciables.csprojAssemblyReference.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\obj\Debug\Clases Instanciables.csproj.CoreCompileInputs.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\bin\Debug\Clases Instanciables.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\bin\Debug\Clases Instanciables.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\bin\Debug\Archivos.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\bin\Debug\Entidades.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\bin\Debug\Excepciones.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\bin\Debug\Archivos.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\bin\Debug\Entidades.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\bin\Debug\Excepciones.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\obj\Debug\Clases Instanciables.csproj.CopyComplete
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\obj\Debug\Clases Instanciables.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Clases Instanciables\obj\Debug\Clases Instanciables.pdb
