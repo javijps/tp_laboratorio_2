@@ -11,8 +11,6 @@ namespace Archivos
 {
     public class Texto : IArchivo<string>
     {
-        //false o nada?
-
         /// <summary>
         /// 
         /// </summary>

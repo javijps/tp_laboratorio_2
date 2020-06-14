@@ -11,11 +11,6 @@ namespace EntidadesInstanciables
 {
     public class Jornada
     {
-        /*-CHEQUEAR LOGICA DE IGUALDAD y !=
-         * guardar y leer
-         *-DOC
-         *-TITULO SOBRECARGAS
-         */
 
         private List <Alumno> alumnos;
         private Universidad.EClases clase;
@@ -106,9 +101,36 @@ namespace EntidadesInstanciables
 
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("CLASE DE ");
+            sb.Append(this.clase.ToString());
+            sb.Append(" POR ");
+            sb.Append(this.instructor.ToString());
+            sb.AppendLine("ALUMNOS: ");
+
+            foreach (Alumno item in this.alumnos)
+            {
+                sb.Append(item.ToString());
+            }
+
+            sb.AppendLine("<----------------------------------------------------->");
+            sb.AppendLine();
+
+            return sb.ToString();
+        }
+
+
         #endregion
 
-        #region "Sobrecarga de /////"
+        #region "Sobrecarga de Operadores"
 
         /// <summary>
         /// 
@@ -120,7 +142,7 @@ namespace EntidadesInstanciables
         {
             foreach (Alumno item in j.alumnos)
             {
-                if(item == a)//falta corregir el tipo de universitario en la igualdad
+                if(item == a)
                 {
                     return true;
                 }
@@ -152,35 +174,6 @@ namespace EntidadesInstanciables
                 j.alumnos.Add(a);
             }
             return j;
-        }
-
-        #endregion
-
-        #region "Sobrecarga de /////"
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-
-            sb.Append("CLASE DE ");
-            sb.Append(this.clase.ToString());
-            sb.Append(" POR ");
-            sb.Append(this.instructor.ToString());
-            sb.AppendLine("ALUMNOS: ");
-
-            foreach (Alumno item in this.alumnos)
-            {
-                sb.Append(item.ToString());
-            }
-
-            sb.AppendLine("<----------------------------------------------------->");
-            sb.AppendLine();
-
-            return sb.ToString();
         }
 
         #endregion

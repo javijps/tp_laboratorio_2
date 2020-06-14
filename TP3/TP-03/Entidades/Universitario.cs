@@ -19,6 +19,7 @@ namespace EntidadesAbstractas
 
         private int legajo;
 
+        #region "Propiedades"
 
         public int Legajo
         {
@@ -26,7 +27,7 @@ namespace EntidadesAbstractas
             set { this.legajo = value; }
         }
 
-
+        #endregion
 
         #region "Constructores"
 
@@ -75,36 +76,6 @@ namespace EntidadesAbstractas
             return sb.ToString();
         }
 
-        #endregion
-
-        #region "Sobrecarga de "//////////
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="pg1"></param>
-        /// <param name="pg2"></param>
-        /// <returns></returns>
-        public static bool operator ==(Universitario pg1, Universitario pg2)
-        {
-            return pg1.Legajo == pg2.Legajo || pg1.DNI == pg2.DNI ;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="pg1"></param>
-        /// <param name="pg2"></param>
-        /// <returns></returns>
-        public static bool operator !=(Universitario pg1, Universitario pg2)
-        {
-            return !(pg1 == pg2);
-        }
-
-        #endregion
-
-        #region "Sobrecarga de "//////////
-
         /// <summary>
         /// 
         /// </summary>
@@ -121,7 +92,35 @@ namespace EntidadesAbstractas
             return rta;
         }
 
+
         #endregion
+
+        #region "Sobrecarga de Operadores"
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pg1"></param>
+        /// <param name="pg2"></param>
+        /// <returns></returns>
+        public static bool operator ==(Universitario pg1, Universitario pg2)
+        {
+            return (pg1.GetType() == pg2.GetType()) && (pg1.Legajo == pg2.Legajo || pg1.DNI == pg2.DNI);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pg1"></param>
+        /// <param name="pg2"></param>
+        /// <returns></returns>
+        public static bool operator !=(Universitario pg1, Universitario pg2)
+        {
+            return !(pg1 == pg2);
+        }
+
+        #endregion
+
     }
 }
 

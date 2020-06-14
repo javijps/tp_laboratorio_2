@@ -13,16 +13,24 @@ namespace EntidadesInstanciables
 {
     public class Universidad
     {
-        /*
-         * REVISAR U != CLASE
-         * GUARDAR Y LEER
-         * chequear los null
-         */
-
-
         private List<Alumno> alumnos;
         private List<Jornada> jornada;
         private List<Profesor> profesores;
+
+        #region Enumerado
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum EClases
+        {
+            Programacion,
+            Laboratorio,
+            Legislacion,
+            SPD
+        }
+
+        #endregion
 
         #region "Propiedades"
 
@@ -60,7 +68,7 @@ namespace EntidadesInstanciables
         /// <returns></returns>
         public Jornada this[int i]
         {
-            get { return this.jornada[i]; }//ESTA BIEN?
+            get { return this.jornada[i]; }
             set { this.jornada[i] = value; }
         }
 
@@ -87,9 +95,7 @@ namespace EntidadesInstanciables
         /// <param name="uni"></param>
         /// <returns></returns>
         public static bool Guardar(Universidad uni)
-        {//XML
-         //tiene que guardar todos los datos de la universidad, las 3 listas y todos los datos de cada elemento de cada lista
-
+        {
             Xml<Universidad> xml = new Xml<Universidad>();
 
             return xml.Guardar(@"C:\archivos\ArchivoUniversidad.xml", uni);
@@ -99,7 +105,7 @@ namespace EntidadesInstanciables
         /// 
         /// </summary>
         /// <returns></returns>
-        public static Universidad Leer()// CAMBIAR AL HACER LEER DE XML
+        public static Universidad Leer()
         {
             Xml<Universidad> xml = new Xml<Universidad>();
 
@@ -127,9 +133,6 @@ namespace EntidadesInstanciables
             }
             return sb.ToString();
         }
-        #endregion
-
-        #region "Sobrecarga de ///////"
 
         public override string ToString()//revisar
         {
@@ -138,11 +141,15 @@ namespace EntidadesInstanciables
 
         #endregion
 
-        #region "Sobrecarga de ///////"
+        #region "Sobrecarga de Operadores"
 
         public static bool operator ==(Universidad u, Alumno a)
         {
-            return u.alumnos.Contains(a);
+            if (!(a is null))
+            {
+                return u.Alumnos.Contains(a);
+            }
+            return false;
         }
 
         /// <summary>
@@ -164,7 +171,11 @@ namespace EntidadesInstanciables
         /// <returns></returns>
         public static bool operator ==(Universidad u, Profesor i)
         {
-            return u.profesores.Contains(i);
+            if (!(i is null))
+            {
+                return u.Profesores.Contains(i);
+            }
+            return false;
         }
 
         /// <summary>
@@ -225,12 +236,14 @@ namespace EntidadesInstanciables
         /// <returns></returns>
         public static Universidad operator +(Universidad u, Alumno a)
         {
-            if (u == a)
+            if (!(a is null))
             {
-                throw new AlumnoRepetidoException();
+                if (u == a)
+                {
+                    throw new AlumnoRepetidoException();
+                }
+                u.alumnos.Add(a);
             }
-            u.alumnos.Add(a);
-
             return u;
         }
 
@@ -242,7 +255,7 @@ namespace EntidadesInstanciables
         /// <returns></returns>
         public static Universidad operator +(Universidad u, Profesor i)
         {
-            if (u != i)
+            if (!(i is null) && u != i)
             {
                 u.profesores.Add(i);
             }
@@ -276,43 +289,5 @@ namespace EntidadesInstanciables
 
         #endregion
 
-        #region Enumerado
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public enum EClases
-        {
-            Programacion,
-            Laboratorio,
-            Legislacion,
-            SPD
-        }
-
-        #endregion
-
-
-
-        public static bool GuardarT(Universidad u)
-        {
-            Texto txt = new Texto();
-
-            return txt.Guardar(@"C:\archivos\UNI.txt", u.ToString());
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public static string LeerT()
-        {
-            Texto txt = new Texto();
-            string texto;
-
-            txt.Leer(@"C:\archivos\UNI.txt", out texto);
-
-            return texto;
-
-        }
     }
 }

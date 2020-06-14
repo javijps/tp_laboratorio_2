@@ -11,12 +11,28 @@ using System.Xml.Serialization;
 
 namespace EntidadesInstanciables
 {
+    [XmlInclude(typeof(Alumno))]
     public sealed class Alumno : Universitario 
     {
-        //titulo de sobrecarga, DOC, REVISAR LOGICA DE == Y != 
 
         private Universidad.EClases claseQueToma;
         private EEstadoCuenta estadoCuenta;
+
+        #region "Enumerado"
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum EEstadoCuenta
+        {
+            AlDia,
+            Deudor,
+            Becado
+        }
+
+        #endregion
+
+        #region "Propiedades"
 
         public Universidad.EClases ClaseQueToma
         {
@@ -30,6 +46,7 @@ namespace EntidadesInstanciables
             set { this.estadoCuenta = value; }
         }
 
+        #endregion
 
         #region "Constructores"
 
@@ -110,9 +127,19 @@ namespace EntidadesInstanciables
             return sb.ToString();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.MostrarDatos();
+        }
+
+
         #endregion
 
-        #region "Sobrecarga de /////"
+        #region "Sobrecarga de Operadores"
 
         /// <summary>
         /// 
@@ -138,31 +165,5 @@ namespace EntidadesInstanciables
 
         #endregion
 
-        #region "Sobrecarga de /////"
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return this.MostrarDatos();
-        }
-
-        #endregion
-
-        #region "Enumerado"
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public enum EEstadoCuenta
-        {
-            AlDia,
-            Deudor,
-            Becado
-        }
-
-        #endregion
     }
 }

@@ -1,16 +1,14 @@
 ﻿using Excepciones;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
-
+using System.IO;
 
 namespace EntidadesAbstractas
 {
+    [XmlInclude(typeof(Universitario))]
     public abstract class Persona 
     {
         private string nombre;
@@ -89,7 +87,7 @@ namespace EntidadesAbstractas
         /// 
         /// </summary>
         public string StringToDNI
-        {
+        { 
             set { this.dni = ValidarDni(this.Nacionalidad,value); }
         }
 
@@ -152,10 +150,7 @@ namespace EntidadesAbstractas
         /// <param name="dato"></param>
         /// <returns></returns>
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
-        {
-
-            Console.WriteLine("dato " + dato.ToString() + " nacionalidad " + nacionalidad.ToString());
-            
+        {  
             switch (nacionalidad)
             {
                 case ENacionalidad.Argentino:
@@ -219,10 +214,6 @@ namespace EntidadesAbstractas
             return "";
         }
 
-        #endregion
-
-        #region "Sobrecarga de " //renombrar
-
         /// <summary>
         /// 
         /// </summary>
@@ -243,6 +234,5 @@ namespace EntidadesAbstractas
         }
 
         #endregion
-
     }
 }

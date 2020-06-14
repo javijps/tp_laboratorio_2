@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 using Excepciones;
+using System.IO;
 
 
-namespace Archivos //CHEQUEAR EN AMBOS SI EL ARCHIVO EXISTE
+namespace Archivos
 {
-    public class Xml<T> //: IArchivo<T>
+    public class Xml<T> : IArchivo<T>
     {
         /// <summary>
         /// 
@@ -20,7 +21,6 @@ namespace Archivos //CHEQUEAR EN AMBOS SI EL ARCHIVO EXISTE
         /// <returns></returns>
         public bool Guardar(string archivo, T datos)
         {
-            //guarda con el tostring()
             try
             {
                 using (XmlTextWriter writer = new XmlTextWriter(archivo,Encoding.Default))

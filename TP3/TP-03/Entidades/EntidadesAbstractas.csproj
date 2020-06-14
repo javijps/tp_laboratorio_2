@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Archivos\Archivos.csproj">
+      <Project>{e7b05d71-f33c-406c-8ca0-ca460e23b0e2}</Project>
+      <Name>Archivos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Excepciones\Excepciones.csproj">
       <Project>{cbf282db-f208-4e8f-a324-bb942741abd2}</Project>
       <Name>Excepciones</Name>

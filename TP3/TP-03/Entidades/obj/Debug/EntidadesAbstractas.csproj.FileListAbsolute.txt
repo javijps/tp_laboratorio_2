@@ -7,3 +7,5 @@ C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades
 C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\obj\Debug\EntidadesAbstractas.csproj.CopyComplete
 C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\obj\Debug\Entidades.dll
 C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\bin\Debug\Archivos.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Entidades\bin\Debug\Archivos.pdb

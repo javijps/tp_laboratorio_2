@@ -11,16 +11,10 @@ using System.Xml.Serialization;
 
 namespace EntidadesInstanciables
 {
+    [XmlInclude(typeof(Profesor))]
     public sealed class Profesor : Universitario
     {
-        /*-REVISAR CONSTRUCTORES
-         *-ESTA BIEN EL CONTAINS DE == 
-         *-TITULO SOBRECARGAS
-         *-DOC
-         */
-
-
-        private Queue<Universidad.EClases> clasesDelDia;//FIFO. COLA
+        private Queue<Universidad.EClases> clasesDelDia;
         private static Random random;
 
         #region "Constructores"
@@ -102,9 +96,18 @@ namespace EntidadesInstanciables
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.MostrarDatos();
+        }
+
         #endregion
 
-        #region "Sobrecarga de /////"
+        #region "Sobrecarga de Operadores"
 
         /// <summary>
         /// 
@@ -114,7 +117,7 @@ namespace EntidadesInstanciables
         /// <returns></returns>
         public static bool operator ==(Profesor i, Universidad.EClases clase)
         {
-            return i.clasesDelDia.Contains(clase);//chequear
+            return i.clasesDelDia.Contains(clase);
         }
 
         /// <summary>
@@ -129,19 +132,5 @@ namespace EntidadesInstanciables
         }
 
         #endregion
-
-        #region "Sobrecarga de /////"
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return this.MostrarDatos();
-        }
-
-        #endregion
-
     }
 }
