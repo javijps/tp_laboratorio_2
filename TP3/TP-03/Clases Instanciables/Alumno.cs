@@ -1,16 +1,35 @@
-﻿using Entidades;
+﻿using EntidadesAbstractas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
-namespace Clases_Instanciables
+
+
+namespace EntidadesInstanciables
 {
-    public sealed class Alumno : Universitario //titulo de sobrecarga, DOC, REVISAR LOGICA DE == Y != Y SI MUESTRA DATOS OK
+    public sealed class Alumno : Universitario 
     {
+        //titulo de sobrecarga, DOC, REVISAR LOGICA DE == Y != 
+
         private Universidad.EClases claseQueToma;
         private EEstadoCuenta estadoCuenta;
+
+        public Universidad.EClases ClaseQueToma
+        {
+            get { return this.claseQueToma; }
+            set { this.claseQueToma = value; }
+        }
+
+        public EEstadoCuenta EstadoCuenta
+        {
+            get { return this.estadoCuenta; }
+            set { this.estadoCuenta = value; }
+        }
+
 
         #region "Constructores"
 
@@ -18,10 +37,7 @@ namespace Clases_Instanciables
         /// 
         /// </summary>
         public Alumno()
-            : base()
-        {
-
-        }
+        { }
 
         /// <summary>
         /// 
@@ -86,10 +102,11 @@ namespace Clases_Instanciables
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(base.MostrarDatos());
+            sb.AppendLine(base.MostrarDatos());
             sb.Append("ESTADO DE CUENTA: ");
+            sb.AppendLine(this.estadoCuenta.ToString());
             sb.Append(this.ParticiparEnClase());
-
+            
             return sb.ToString();
         }
 

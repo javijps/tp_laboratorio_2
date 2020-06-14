@@ -1,19 +1,19 @@
-﻿using Entidades;
+﻿using EntidadesAbstractas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
-namespace Clases_Instanciables
+
+namespace EntidadesInstanciables
 {
     public sealed class Profesor : Universitario
     {
         /*-REVISAR CONSTRUCTORES
-         *-HACER ASIGNACION DE MATERIAS CON RANDOM, VER RELACION CON ENUMERADO
-         *-RANDOMCLASES()
-         *-ESTA BIEN EL FOREACH DE PARTICIPAR EN CLASE?
          *-ESTA BIEN EL CONTAINS DE == 
          *-TITULO SOBRECARGAS
          *-DOC
@@ -36,11 +36,7 @@ namespace Clases_Instanciables
         /// <summary>
         /// 
         /// </summary>
-        public Profesor()
-            :base()
-        {
-
-        }
+        public Profesor() { }
 
         /// <summary>
         /// 
@@ -67,10 +63,10 @@ namespace Clases_Instanciables
         /// </summary>
         private void _randomClases()
         {
-            Profesor.random.Next();// con el enumerado clases
-
-
-            //asigna 2 clases al azar
+            for (int i = 0; i < 2; i++)
+            {
+                this.clasesDelDia.Enqueue((EntidadesInstanciables.Universidad.EClases)Profesor.random.Next(0, 4));
+            }
         }
 
         /// <summary>
@@ -83,6 +79,7 @@ namespace Clases_Instanciables
 
             sb.Append(base.MostrarDatos());
             sb.Append(this.ParticiparEnClase());
+            sb.AppendLine();
 
             return sb.ToString();
         }
@@ -95,11 +92,11 @@ namespace Clases_Instanciables
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("CLASES DEL DIA: ");
+            sb.AppendLine("CLASES DEL DIA: ");
 
             foreach (Universidad.EClases item in this.clasesDelDia)
             {
-                sb.AppendLine(item.ToString());
+                sb.AppendLine(item.ToString());//no esta parseado
             }
             return sb.ToString();
 

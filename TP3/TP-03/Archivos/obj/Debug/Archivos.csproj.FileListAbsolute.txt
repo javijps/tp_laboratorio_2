@@ -1,6 +1,9 @@
-C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Archivos\bin\Debug\Archivos.dll
-C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Archivos\bin\Debug\Archivos.pdb
 C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Archivos\obj\Debug\Archivos.csprojAssemblyReference.cache
 C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Archivos\obj\Debug\Archivos.csproj.CoreCompileInputs.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Archivos\bin\Debug\Archivos.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Archivos\bin\Debug\Archivos.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Archivos\bin\Debug\Excepciones.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Archivos\bin\Debug\Excepciones.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Archivos\obj\Debug\Archivos.csproj.CopyComplete
 C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Archivos\obj\Debug\Archivos.dll
 C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP3\TP-03\Archivos\obj\Debug\Archivos.pdb

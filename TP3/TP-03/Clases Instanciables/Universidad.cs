@@ -6,18 +6,17 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
-namespace Clases_Instanciables
+namespace EntidadesInstanciables
 {
     public class Universidad
     {
         /*
-         * REVISAR INDEXADOR PROP JORNADA
-         * CONSTRUCTORES
-         * propiedades?
-         * Muestra los datos ok?
          * REVISAR U != CLASE
-         * CAMBIAR LEER
+         * GUARDAR Y LEER
+         * chequear los null
          */
 
 
@@ -73,9 +72,9 @@ namespace Clases_Instanciables
         /// </summary>
         public Universidad()
         {
-            this.alumnos = new List<Alumno>();
-            this.jornada = new List<Jornada>();
-            this.profesores = new List<Profesor>();
+            this.Alumnos = new List<Alumno>();
+            this.Jornada = new List<Jornada>();
+            this.Profesores = new List<Profesor>();
         }
 
         #endregion
@@ -93,7 +92,7 @@ namespace Clases_Instanciables
 
             Xml<Universidad> xml = new Xml<Universidad>();
 
-            return xml.Guardar("ArchivoUniversidad.xml", uni);
+            return xml.Guardar(@"C:\archivos\ArchivoUniversidad.xml", uni);
         }
 
         /// <summary>
@@ -104,9 +103,9 @@ namespace Clases_Instanciables
         {
             Xml<Universidad> xml = new Xml<Universidad>();
 
-            Universidad u = new Universidad();               //--------CAMBIAR----------------//
+            Universidad u = null;
 
-            xml.Leer("ArchivoUniversidad.xml", u);
+            xml.Leer(@"C:\archivos\ArchivoUniversidad.xml", out u);
 
             return u;
         }
@@ -120,21 +119,12 @@ namespace Clases_Instanciables
         {
             StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine("JORNADA: ");
+
             foreach (Jornada item in this.Jornada)
             {
                 sb.Append(item.ToString());
             }
-
-            foreach (Alumno item in this.Alumnos)
-            {
-                sb.Append(item.ToString());
-            }
-
-            foreach (Profesor item in this.Profesores)
-            {
-                sb.Append(item.ToString());
-            }
-
             return sb.ToString();
         }
         #endregion
@@ -152,7 +142,7 @@ namespace Clases_Instanciables
 
         public static bool operator ==(Universidad u, Alumno a)
         {
-            return u.alumnos.Contains(a);//esta bien?
+            return u.alumnos.Contains(a);
         }
 
         /// <summary>
@@ -174,7 +164,7 @@ namespace Clases_Instanciables
         /// <returns></returns>
         public static bool operator ==(Universidad u, Profesor i)
         {
-            return u.profesores.Contains(i);//esta bien?
+            return u.profesores.Contains(i);
         }
 
         /// <summary>
@@ -214,7 +204,7 @@ namespace Clases_Instanciables
         /// <returns></returns>
         public static Profesor operator !=(Universidad u, Universidad.EClases clase)
         {
-            Profesor p = null;//NO ME CIERRA EL NULL
+            Profesor p = null;//NO ME CIERRA EL N
 
             foreach (Profesor item in u.Profesores)
             {
@@ -235,14 +225,12 @@ namespace Clases_Instanciables
         /// <returns></returns>
         public static Universidad operator +(Universidad u, Alumno a)
         {
-            if (u != a)
-            {
-                u.alumnos.Add(a);
-            }
-            else
+            if (u == a)
             {
                 throw new AlumnoRepetidoException();
             }
+            u.alumnos.Add(a);
+
             return u;
         }
 
@@ -302,5 +290,29 @@ namespace Clases_Instanciables
         }
 
         #endregion
+
+
+
+        public static bool GuardarT(Universidad u)
+        {
+            Texto txt = new Texto();
+
+            return txt.Guardar(@"C:\archivos\UNI.txt", u.ToString());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static string LeerT()
+        {
+            Texto txt = new Texto();
+            string texto;
+
+            txt.Leer(@"C:\archivos\UNI.txt", out texto);
+
+            return texto;
+
+        }
     }
 }

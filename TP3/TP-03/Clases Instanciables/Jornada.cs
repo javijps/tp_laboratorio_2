@@ -5,17 +5,16 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntidadesInstanciables;
 
-namespace Clases_Instanciables
+namespace EntidadesInstanciables
 {
     public class Jornada
     {
         /*-CHEQUEAR LOGICA DE IGUALDAD y !=
+         * guardar y leer
          *-DOC
          *-TITULO SOBRECARGAS
-         *-CONSTRUCTORES
-         * -TOSTRING
-         * -PROPIEDADES EN CONSTRUCTORES?
          */
 
         private List <Alumno> alumnos;
@@ -71,8 +70,8 @@ namespace Clases_Instanciables
         public Jornada(Universidad.EClases clase, Profesor instructor)
             :this()
         {
-            this.Clase = clase;//reemplazar con propiedades?
-            this.Instructor = instructor;//reemplazar con propiedades?
+            this.Clase = clase;
+            this.Instructor = instructor;
         }
 
         #endregion
@@ -89,7 +88,7 @@ namespace Clases_Instanciables
         {
             Texto txt = new Texto();
 
-            return txt.Guardar("JORNADATEXTO.txt",jornada.ToString());
+            return txt.Guardar(@"C:\archivos\JORNADA.txt", jornada.ToString());
         }
 
         /// <summary>
@@ -101,7 +100,7 @@ namespace Clases_Instanciables
             Texto txt = new Texto();
             string texto;
 
-            txt.Leer("JORNADATEXTO.txt", out texto);
+            txt.Leer(@"C:\archivos\JORNADA.txt", out texto);
 
             return texto;
 
@@ -121,7 +120,7 @@ namespace Clases_Instanciables
         {
             foreach (Alumno item in j.alumnos)
             {
-                if(item == a)
+                if(item == a)//falta corregir el tipo de universitario en la igualdad
                 {
                     return true;
                 }
@@ -167,15 +166,19 @@ namespace Clases_Instanciables
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("JORNADA: ");
-            sb.Append("CLASE DE:");
-            sb.Append(this.clase.ToString());//CHEQUEAR SI NINGUNA DE LAS OTRAS CLASES LO MUESTRA
-            sb.Append("POR NOMBRE COMPLETO:");
+            sb.Append("CLASE DE ");
+            sb.Append(this.clase.ToString());
+            sb.Append(" POR ");
+            sb.Append(this.instructor.ToString());
+            sb.AppendLine("ALUMNOS: ");
 
             foreach (Alumno item in this.alumnos)
             {
-                sb.Append(item.ToString());// ESTA BIEN?
+                sb.Append(item.ToString());
             }
+
+            sb.AppendLine("<----------------------------------------------------->");
+            sb.AppendLine();
 
             return sb.ToString();
         }

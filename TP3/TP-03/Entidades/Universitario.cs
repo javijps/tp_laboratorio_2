@@ -3,23 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
-namespace Entidades
+
+namespace EntidadesAbstractas
 {
-    public abstract class Universitario : Persona //REVISAR SI ESTAN BIEN LAS IGUALDADES. CONSTRUCTOR POR DEFECTO?. TITULO SOBRECARGAS.DOC
+
+    public abstract class Universitario : Persona 
     {
-        int legajo;
+
+        //REVISAR SI ESTAN BIEN LAS IGUALDADES. FALTA CONTEMPLAR EL TIPO DE IGUALDAD.
+        //CONSTRUCTOR POR DEFECTO?. 
+        //TITULO SOBRECARGAS.DOC
+
+        private int legajo;
+
+
+        public int Legajo
+        {
+            get { return this.legajo; }
+            set { this.legajo = value; }
+        }
+
+
 
         #region "Constructores"
-        
+
         /// <summary>
         /// 
         /// </summary>
-        public Universitario()
-            :base()
-        {
-
-        }
+        public Universitario() { }
 
         /// <summary>
         /// 
@@ -32,7 +46,7 @@ namespace Entidades
         public Universitario(int legajo, string nombre, string apellido, string dni, ENacionalidad nacionalidad)
             :base(nombre, apellido, dni, nacionalidad)
         {
-            this.legajo = legajo;
+            this.Legajo = legajo;
         }
 
         #endregion
@@ -55,7 +69,8 @@ namespace Entidades
 
             sb.Append(base.ToString());
             sb.Append("LEGAJO NÚMERO: ");
-            sb.AppendLine(this.legajo.ToString());
+            sb.Append(this.Legajo.ToString());
+            sb.AppendLine();
 
             return sb.ToString();
         }
@@ -72,10 +87,7 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator ==(Universitario pg1, Universitario pg2)
         {
-            return (pg1.legajo == pg2.legajo || pg1.DNI == pg2.DNI);//esta bien la logica? falta si son del mismo tipo equals?
-            //opcion 2 if(pg1.legajo == pg2.legajo || pg1.DNI ==pg2.DNI)
-            //return true
-            //else false
+            return pg1.Legajo == pg2.Legajo || pg1.DNI == pg2.DNI ;
         }
 
         /// <summary>
@@ -98,7 +110,7 @@ namespace Entidades
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public override bool Equals(object obj)//REVISAR!!!!!!!!!!!!!
+        public override bool Equals(object obj)
         {
             bool rta = false;
 

@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
+using Excepciones;
 
-namespace Archivos
+
+namespace Archivos //CHEQUEAR EN AMBOS SI EL ARCHIVO EXISTE
 {
     public class Xml<T> //: IArchivo<T>
     {
@@ -17,7 +21,19 @@ namespace Archivos
         public bool Guardar(string archivo, T datos)
         {
             //guarda con el tostring()
-            return false;
+            try
+            {
+                using (XmlTextWriter writer = new XmlTextWriter(archivo,Encoding.Default))
+                {
+                    XmlSerializer ser = new XmlSerializer((typeof(T)));
+                    ser.Serialize(writer, datos);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ArchivosException(e);
+            }
+            return true;
         }
 
         /// <summary>
@@ -26,9 +42,22 @@ namespace Archivos
         /// <param name="archivo"></param>
         /// <param name="datos"></param>
         /// <returns></returns>
-        public bool Leer(string archivo, T datos) //out
+        public bool Leer(string archivo, out T datos)
         {
-            return false;
+            try
+            {
+                using (XmlTextReader reader = new XmlTextReader(archivo))
+                {
+                    XmlSerializer ser = new XmlSerializer((typeof(T)));
+
+                    datos = (T) ser.Deserialize(reader);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ArchivosException(e);
+            }
+            return true;
         }
     }
 }

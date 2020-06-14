@@ -5,16 +5,31 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
-namespace Entidades
+
+namespace EntidadesAbstractas
 {
-    public abstract class Persona
+    public abstract class Persona 
     {
-
         private string nombre;
         private string apellido;
         private int dni;
         private ENacionalidad nacionalidad;
+
+        #region "Enumerado"
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum ENacionalidad
+        {
+            Argentino,
+            Extranjero
+        }
+
+        #endregion
 
         #region "Propiedades"
 
@@ -27,7 +42,7 @@ namespace Entidades
 
             set
             {
-                if (ValidarNombreApellido(value) != null)
+                if (ValidarNombreApellido(value) != "")
                 {
                     this.nombre = value;
                 }
@@ -43,7 +58,7 @@ namespace Entidades
 
             set
             {
-                if (ValidarNombreApellido(value) != null)
+                if (ValidarNombreApellido(value) != "")
                 {
                     this.apellido = value;
                 }
@@ -75,7 +90,7 @@ namespace Entidades
         /// </summary>
         public string StringToDNI
         {
-            set { this.dni = ValidarDni(this.Nacionalidad, value); }
+            set { this.dni = ValidarDni(this.Nacionalidad,value); }
         }
 
         #endregion
@@ -85,10 +100,7 @@ namespace Entidades
         /// <summary>
         /// 
         /// </summary>
-        public Persona()
-        {
-            //para que el constructor por defecto?
-        }
+        public Persona() { }
 
         /// <summary>
         /// 
@@ -141,11 +153,15 @@ namespace Entidades
         /// <returns></returns>
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {
+
+            Console.WriteLine("dato " + dato.ToString() + " nacionalidad " + nacionalidad.ToString());
+            
             switch (nacionalidad)
             {
                 case ENacionalidad.Argentino:
                     {
-                        if (dato < 1 || dato > 89999999)
+
+                        if(dato < 0 || dato > 89999999)
                         {
                             throw new NacionalidadInvalidaException();
                         }
@@ -171,9 +187,10 @@ namespace Entidades
         /// <returns></returns>
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
+            
             int dni;
 
-            if (dato.Length < 1 || dato.Length > 9)
+            if (dato.Length < 1 || dato.Length > 8)
             {
                 throw new DniInvalidoException();
             }
@@ -199,7 +216,7 @@ namespace Entidades
             {
                 return dato;
             }
-            return null;
+            return "";
         }
 
         #endregion
@@ -220,23 +237,12 @@ namespace Entidades
             sb.AppendLine(this.Nombre);
             sb.Append("NACIONALIDAD: ");
             sb.AppendLine(this.Nacionalidad.ToString());
+            sb.AppendLine();
 
             return sb.ToString();
         }
 
         #endregion
 
-        #region "Enumerado"
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public enum ENacionalidad
-        {
-            Argentino,
-            Extranjero
-        }
-
-        #endregion
     }
 }
