@@ -11,7 +11,6 @@ using System.Xml.Serialization;
 
 namespace EntidadesInstanciables
 {
-    [XmlInclude(typeof(Profesor))]
     public sealed class Profesor : Universitario
     {
         private Queue<Universidad.EClases> clasesDelDia;
@@ -59,7 +58,7 @@ namespace EntidadesInstanciables
         {
             for (int i = 0; i < 2; i++)
             {
-                this.clasesDelDia.Enqueue((EntidadesInstanciables.Universidad.EClases)Profesor.random.Next(0, 4));
+                this.clasesDelDia.Enqueue((EntidadesInstanciables.Universidad.EClases)Profesor.random.Next(0, 3));
             }
         }
 
