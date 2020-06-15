@@ -9,7 +9,7 @@ namespace Excepciones
     public class DniInvalidoException : Exception
     {
         /// <summary>
-        /// 
+        /// Constructor por defecto de la clase DniInvalidoException
         /// </summary>
         public DniInvalidoException()
             : this("DNI inválido.")
@@ -18,7 +18,7 @@ namespace Excepciones
         }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase DniInvalidoException.
         /// </summary>
         /// <param name="mensaje"></param>
         public DniInvalidoException(string mensaje)
@@ -28,7 +28,7 @@ namespace Excepciones
         }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase DniInvalidoException.
         /// </summary>
         /// <param name="mensaje"></param>
         /// <param name="innerException"></param>
@@ -39,7 +39,7 @@ namespace Excepciones
         }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase DniInvalidoException.
         /// </summary>
         /// <param name="innerException"></param>
         public DniInvalidoException(Exception innerException)

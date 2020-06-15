@@ -19,7 +19,7 @@ namespace EntidadesInstanciables
         #region "Propiedades"
         
         /// <summary>
-        /// 
+        /// Propiedad publica de lectura y escritura del atributo alumnos
         /// </summary>
         public List<Alumno> Alumnos 
         {
@@ -28,7 +28,7 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Propiedad publica de lectura y escritura del atributo clase
         /// </summary>
         public Universidad.EClases Clase
         {
@@ -37,7 +37,7 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Propiedad publica de lectura y escritura del atributo instructor
         /// </summary>
         public Profesor Instructor
         {
@@ -50,7 +50,7 @@ namespace EntidadesInstanciables
         #region "Constructores"
 
         /// <summary>
-        /// 
+        /// Constructor por defecto del la clase Jornada. Inicializa la Lista<Alumno>
         /// </summary>
         public Jornada()
         {
@@ -58,10 +58,10 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase Jornada
         /// </summary>
-        /// <param name="clase"></param>
-        /// <param name="instructor"></param>
+        /// <param name="clase">clase de la jornada</param>
+        /// <param name="instructor">profesor que imparte la clase</param>
         public Jornada(Universidad.EClases clase, Profesor instructor)
             :this()
         {
@@ -74,7 +74,7 @@ namespace EntidadesInstanciables
         #region "Métodos"
 
         /// <summary>
-        /// 
+        /// Metodo estatico de clase que guarda la informacion de Jornada en un archivo de texto
         /// </summary>
         /// <param name="jornada"></param>
         /// <returns></returns>
@@ -83,19 +83,19 @@ namespace EntidadesInstanciables
         {
             Texto txt = new Texto();
 
-            return txt.Guardar(@"C:\archivos\JORNADA.txt", jornada.ToString());
+            return txt.Guardar(@"JORNADA.txt", jornada.ToString());
         }
 
         /// <summary>
-        /// 
+        /// Metodo estatico de clase que lee la informacion de un archivo de texto
         /// </summary>
-        /// <returns></returns>
+        /// <returns>retorna una cadena con el texto leido del archivo</returns>
         public static string Leer()
         {
             Texto txt = new Texto();
             string texto;
 
-            txt.Leer(@"C:\archivos\JORNADA.txt", out texto);
+            txt.Leer(@"JORNADA.txt", out texto);
 
             return texto;
 
@@ -103,7 +103,7 @@ namespace EntidadesInstanciables
 
 
         /// <summary>
-        /// 
+        /// Metodo que hace publica la informacion de Jornada
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -133,11 +133,11 @@ namespace EntidadesInstanciables
         #region "Sobrecarga de Operadores"
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador ==. Una Jornada y un alumno seran iguales si el alumno participa de la clase.
         /// </summary>
-        /// <param name="j"></param>
-        /// <param name="a"></param>
-        /// <returns></returns>
+        /// <param name="j">Objeto del tipo jornada</param>
+        /// <param name="a">objeto del tipo alumno</param>
+        /// <returns>true en caso de igualdad, false en caso contrario</returns>
         public static bool operator ==(Jornada j, Alumno a)
         {
             foreach (Alumno item in j.alumnos)
@@ -151,22 +151,23 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador !=. Una Jornada y un alumno seran distintos si el alumno no participa de la clase.
         /// </summary>
-        /// <param name="j"></param>
-        /// <param name="a"></param>
-        /// <returns></returns>
+        /// <param name="j">Objeto del tipo jornada</param>
+        /// <param name="a">objeto del tipo alumno</param>
+        /// <returns>true en caso de desigualdad, false en caso contrario</returns>
+
         public static bool operator !=(Jornada j, Alumno a)
         {
             return !(j == a);
         }
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador +. Un alumno se agregara a la lista alumnos de la jornada, si no existe en la misma
         /// </summary>
-        /// <param name="j"></param>
-        /// <param name="a"></param>
-        /// <returns></returns>
+        /// <param name="j">Objeto del tipo jornada</param>
+        /// <param name="a">objeto del tipo alumno</param>
+        /// <returns>retorna j</returns>
         public static Jornada operator +(Jornada j, Alumno a)
         {
             if(j!=a)

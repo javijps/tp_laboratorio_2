@@ -20,7 +20,7 @@ namespace EntidadesInstanciables
         #region Enumerado
 
         /// <summary>
-        /// 
+        /// Enumerado Eclases
         /// </summary>
         public enum EClases
         {
@@ -35,7 +35,7 @@ namespace EntidadesInstanciables
         #region "Propiedades"
 
         /// <summary>
-        /// 
+        /// Propiedad publica de lectura y escritura del atributo alumnos
         /// </summary>
         public List<Alumno> Alumnos
         {
@@ -44,7 +44,7 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Propiedad publica de lectura y escritura del atributo jornada
         /// </summary>
         public List<Jornada> Jornada
         {
@@ -53,7 +53,7 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Propiedad publica de lectura y escritura del atributo profesores
         /// </summary>
         public List<Profesor> Profesores
         {
@@ -62,7 +62,7 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Propiedad de lectura escritura para al acceso de una jornada por medio de un indexador.
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
@@ -76,7 +76,7 @@ namespace EntidadesInstanciables
 
         #region "Constructores"
         /// <summary>
-        /// 
+        /// Constructor por defecto del la clase Universidad. Iniciliza las listas de todos sus atributos.
         /// </summary>
         public Universidad()
         {
@@ -90,10 +90,10 @@ namespace EntidadesInstanciables
         #region "Métodos"
 
         /// <summary>
-        /// 
+        /// Metodo estatico de clase que serializa la informacion de Universidad en formato xml
         /// </summary>
-        /// <param name="uni"></param>
-        /// <returns></returns>
+        /// <param name="uni">Objeto del tipo universidad</param>
+        /// <returns>true en caso de guardar exitosamente,caso contrario lanzara la excepcion correspondiente</returns>
         public static bool Guardar(Universidad uni)
         {
             Xml<Universidad> xml = new Xml<Universidad>();
@@ -102,9 +102,9 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Metodo estatico de clase que desserializa la informacion de Universidad en formato xml
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Objeto universidad donde se deserializo la informacion</returns>
         public static Universidad Leer()
         {
             Xml<Universidad> xml = new Xml<Universidad>();
@@ -117,9 +117,9 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Metodo que muestra los datos de universidad
         /// </summary>
-        /// <param name="uni"></param>
+        /// <param name="uni">Objeto del tipo Universidad</param>
         /// <returns></returns>
         private string MostrarDatos(Universidad uni)
         {
@@ -134,7 +134,11 @@ namespace EntidadesInstanciables
             return sb.ToString();
         }
 
-        public override string ToString()//revisar
+        /// <summary>
+        /// Metodo que hace publica la informacion de universidad
+        /// </summary>
+        /// <returns>cadena que contiene la informacion de universidad</returns>
+        public override string ToString()
         {
             return MostrarDatos(this);
         }
@@ -143,6 +147,12 @@ namespace EntidadesInstanciables
 
         #region "Sobrecarga de Operadores"
 
+        /// <summary>
+        /// Sobrecarga del operador ==. Un alumno y una universidad seran iguales, si el alumno esta inscripto
+        /// </summary>
+        /// <param name="u">Objeto del tipo Universidad</param>
+        /// <param name="a">Objeto del tipo alumno</param>
+        /// <returns>true en caso de igualdad, false en caso contrario</returns>
         public static bool operator ==(Universidad u, Alumno a)
         {
             if (!(a is null))
@@ -153,22 +163,22 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador !=. Un alumno y una universidad seran distintos, si el alumno no esta inscripto
         /// </summary>
-        /// <param name="u"></param>
-        /// <param name="a"></param>
-        /// <returns></returns>
+        /// <param name="u">Objeto del tipo Universidad</param>
+        /// <param name="a">Objeto del tipo alumno</param>
+        /// <returns>true en caso de igualdad, false en caso contrario</returns>
         public static bool operator !=(Universidad u, Alumno a)
         {
             return !(u == a);
         }
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador ==. Un profesor y una universidad seran iguales, si el profesor dicta clases en ella.
         /// </summary>
-        /// <param name="u"></param>
-        /// <param name="i"></param>
-        /// <returns></returns>
+        /// <param name="u">Objeto del tipo Universidad</param>
+        /// <param name="p">Objeto del tipo Profesor</param>
+        /// <returns>true en caso de igualdad, false en caso contrario</returns>
         public static bool operator ==(Universidad u, Profesor i)
         {
             if (!(i is null))
@@ -179,22 +189,22 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador !=. Un profesor y una universidad seran distintos, si el profesor no dicta clases en ella.
         /// </summary>
-        /// <param name="u"></param>
-        /// <param name="i"></param>
-        /// <returns></returns>
+        /// <param name="u">Objeto del tipo Universidad</param>
+        /// <param name="p">Objeto del tipo Profesor</param>
+        /// <returns>true en caso de igualdad, false en caso contrario</returns>
         public static bool operator !=(Universidad u, Profesor i)
         {
             return !(u == i);
         }
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador ==. Una clase y una universidad seran iguales, si algun profesor dicta la clase. 
         /// </summary>
-        /// <param name="u"></param>
-        /// <param name="clase"></param>
-        /// <returns></returns>
+        /// <param name="u">Objeto del tipo Universidad</param>
+        /// <param name="clase">Objeto del tipo Universidad.EClases</param>
+        /// <returns>El primer profesor capaz de dictar dicha clase, caso contrario arrojara SinProfesorException</returns>
         public static Profesor operator ==(Universidad u, Universidad.EClases clase)
         {
             foreach (Profesor item in u.Profesores)
@@ -208,11 +218,12 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador !=. Una clase y una universidad seran distintos, si algun profesor no dicta la clase. 
         /// </summary>
-        /// <param name="u"></param>
-        /// <param name="clase"></param>
-        /// <returns></returns>
+        /// <param name="u">Objeto del tipo Universidad</param>
+        /// <param name="clase">Objeto del tipo Universidad.EClases</param>
+        /// <returns>El primer profesor incapaz de dictar dicha clase</returns>
+
         public static Profesor operator !=(Universidad u, Universidad.EClases clase)
         {
             Profesor p = null;//NO ME CIERRA EL N
@@ -229,10 +240,10 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador +. Se agregara un alumno a la universidad, si el mismo no esta inscripto
         /// </summary>
-        /// <param name="u"></param>
-        /// <param name="a"></param>
+        /// <param name="u">Objeto del tipo Universidad</param>
+        /// <param name="a">Objeto del tipo Alumno</param>
         /// <returns></returns>
         public static Universidad operator +(Universidad u, Alumno a)
         {
@@ -248,10 +259,10 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador +. Se agregara un profesor a la universidad, si el mismo no se encuentra previamente
         /// </summary>
-        /// <param name="u"></param>
-        /// <param name="i"></param>
+        /// <param name="u">Objeto del tipo Universidad</param>
+        /// <param name="a">Objeto del tipo Alumno</param>
         /// <returns></returns>
         public static Universidad operator +(Universidad u, Profesor i)
         {
@@ -263,11 +274,12 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador +. Se creara un objeto del tipo Jornada, se le asignara un profesor capaz de dar la clase y los 
+        /// inscriptos en la misma
         /// </summary>
-        /// <param name="u"></param>
-        /// <param name="clase"></param>
-        /// <returns></returns>
+        /// <param name="u">Objeto del tipo Universidad</param>
+        /// <param name="clase">Objeto del tipo Universidad.EClases</param>
+        /// <returns>retorna u</returns>
         public static Universidad operator +(Universidad u, Universidad.EClases clase)
         {
             Profesor p = u == clase;

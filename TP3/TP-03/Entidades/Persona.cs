@@ -8,18 +8,17 @@ using System.IO;
 
 namespace EntidadesAbstractas
 {
-    [XmlInclude(typeof(Universitario))]
-    public abstract class Persona 
+    public abstract class Persona
     {
         private string nombre;
         private string apellido;
         private int dni;
         private ENacionalidad nacionalidad;
 
-        #region "Enumerado"
+        #region "Enumerados"
 
         /// <summary>
-        /// 
+        /// Enumerado Nacionalidad
         /// </summary>
         public enum ENacionalidad
         {
@@ -32,7 +31,7 @@ namespace EntidadesAbstractas
         #region "Propiedades"
 
         /// <summary>
-        /// 
+        /// Propiedad publica de lectura y escritura del atributo nombre
         /// </summary>
         public string Nombre
         {
@@ -48,7 +47,7 @@ namespace EntidadesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Propiedad publica  de lectura y escritura del atributo apellido
         /// </summary>
         public string Apellido
         {
@@ -64,7 +63,7 @@ namespace EntidadesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Propiedad publica  de lectura y escritura del atributo dni
         /// </summary>
         public int DNI
         {
@@ -74,7 +73,7 @@ namespace EntidadesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Propiedad publica de lectura y escritura del atributo nacionalidad
         /// </summary>
         public ENacionalidad Nacionalidad
         {
@@ -84,7 +83,7 @@ namespace EntidadesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Propiedad publica de escritura del atributo dni(string)
         /// </summary>
         public string StringToDNI
         { 
@@ -96,16 +95,16 @@ namespace EntidadesAbstractas
         #region "Constructores"
 
         /// <summary>
-        /// 
+        /// Constructor por defecto de la clase Persona, requerido para serializacion xml.
         /// </summary>
         public Persona() { }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase Persona.
         /// </summary>
-        /// <param name="nombre"></param>
-        /// <param name="apellido"></param>
-        /// <param name="nacionalidad"></param>
+        /// <param name="nombre">Nombre de la Persona</param>
+        /// <param name="apellido">Apellido  de la Persona</param>
+        /// <param name="nacionalidad">Nacionalidad  de la Persona</param>
         public Persona(string nombre, string apellido, ENacionalidad nacionalidad)
         {
             this.Nombre = nombre;
@@ -114,12 +113,12 @@ namespace EntidadesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase Persona
         /// </summary>
-        /// <param name="nombre"></param>
-        /// <param name="apellido"></param>
-        /// <param name="dni"></param>
-        /// <param name="nacionalidad"></param>
+        /// <param name="nombre">Nombre de la Persona</param>
+        /// <param name="apellido">Apellido  de la Persona</param>
+        /// <param name="dni">dni de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad  de la Persona</param>
         public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad)
             : this(nombre, apellido, nacionalidad)
         {
@@ -129,10 +128,10 @@ namespace EntidadesAbstractas
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="nombre"></param>
-        /// <param name="apellido"></param>
-        /// <param name="dni"></param>
-        /// <param name="nacionalidad"></param>
+        /// <param name="nombre">Nombre de la Persona</param>
+        /// <param name="apellido">Apellido  de la Persona</param>
+        /// <param name="dni">dni de la persona(string)</param>
+        /// <param name="nacionalidad">Nacionalidad  de la Persona</param>
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad)
             : this(nombre, apellido, nacionalidad)
         {
@@ -144,11 +143,11 @@ namespace EntidadesAbstractas
         #region "Métodos"
 
         /// <summary>
-        /// 
+        /// Metodo que valida el numero de documento en relacion a la nacionalidad de la persona.
         /// </summary>
         /// <param name="nacionalidad"></param>
         /// <param name="dato"></param>
-        /// <returns></returns>
+        /// <returns>numero de dni</returns>
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {  
             switch (nacionalidad)
@@ -175,11 +174,11 @@ namespace EntidadesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Valida que el formato del dni no contenga caracteres invalidos.
         /// </summary>
         /// <param name="nacionalidad"></param>
         /// <param name="dato"></param>
-        /// <returns></returns>
+        /// <returns>numero de dni</returns>
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
             
@@ -199,10 +198,10 @@ namespace EntidadesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Valida que Apellido y Nombre sean cadenas compuestas solo por letras
         /// </summary>
         /// <param name="dato"></param>
-        /// <returns></returns>
+        /// <returns>Nombre o Apellido</returns>
         public string ValidarNombreApellido(string dato)
         {
             Regex r = new Regex("^[a-zA-Z]+$");
@@ -215,9 +214,9 @@ namespace EntidadesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Metodo que hace publico los atributos de Persona.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Strign con todos los datos de Persona</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

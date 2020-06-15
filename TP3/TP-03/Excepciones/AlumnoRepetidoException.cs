@@ -9,7 +9,7 @@ namespace Excepciones
     public class AlumnoRepetidoException : Exception
     {
         /// <summary>
-        /// 
+        /// Constructor por defecto de la clase AlumnoRepetidoException
         /// </summary>
         public AlumnoRepetidoException()
             : this("Alumno repetido")
@@ -18,7 +18,7 @@ namespace Excepciones
         }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase AlumnoRepetidoException.
         /// </summary>
         /// <param name="mensaje"></param>
         public AlumnoRepetidoException(string mensaje)

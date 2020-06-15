@@ -11,17 +11,16 @@ using System.Xml.Serialization;
 
 namespace EntidadesInstanciables
 {
-    [XmlInclude(typeof(Alumno))]
-    public sealed class Alumno : Universitario 
+    public sealed class Alumno : Universitario
     {
 
         private Universidad.EClases claseQueToma;
         private EEstadoCuenta estadoCuenta;
 
-        #region "Enumerado"
+        #region "Enumerados"
 
         /// <summary>
-        /// 
+        /// Enumerado de Estado de Cuenta del alumno
         /// </summary>
         public enum EEstadoCuenta
         {
@@ -34,12 +33,18 @@ namespace EntidadesInstanciables
 
         #region "Propiedades"
 
+        /// <summary>
+        /// Propiedad publica de lectura y escritura del atributo claseQueToma      
+        /// </summary>
         public Universidad.EClases ClaseQueToma
         {
             get { return this.claseQueToma; }
             set { this.claseQueToma = value; }
         }
 
+        /// <summary>
+        /// Propiedad publica de lectura y escritura del atributo estadoDeCuenta      
+        /// </summary>
         public EEstadoCuenta EstadoCuenta
         {
             get { return this.estadoCuenta; }
@@ -51,20 +56,20 @@ namespace EntidadesInstanciables
         #region "Constructores"
 
         /// <summary>
-        /// 
+        /// Constructor por defecto de la clase Alumno, requerido para serializacion xml.
         /// </summary>
         public Alumno()
         { }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase Alumno
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="nombre"></param>
-        /// <param name="apellido"></param>
-        /// <param name="dni"></param>
-        /// <param name="nacionalidad"></param>
-        /// <param name="claseQueToma"></param>
+        /// <param name="id">legajo del Universitario</param>
+        /// <param name="nombre">Nombre de la Persona</param>
+        /// <param name="apellido">Apellido  de la Persona</param>
+        /// <param name="dni">dni de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad  de la Persona</param>
+        /// <param name="claseQueToma">Clase que toma el alumno</param>
         public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, Universidad.EClases claseQueToma)
             : base(id, nombre, apellido, dni, nacionalidad)
         {
@@ -72,15 +77,15 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase Alumno
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="nombre"></param>
-        /// <param name="apellido"></param>
-        /// <param name="dni"></param>
-        /// <param name="nacionalidad"></param>
-        /// <param name="claseQueToma"></param>
-        /// <param name="estadoCuenta"></param>
+        /// <param name="id">legajo del Universitario</param>
+        /// <param name="nombre">Nombre de la Persona</param>
+        /// <param name="apellido">Apellido  de la Persona</param>
+        /// <param name="dni">dni de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad  de la Persona</param>
+        /// <param name="claseQueToma">Clase que toma el alumno</param>
+        /// <param name="estadoCuenta">Estado de Cuenta del alumno</param>
         public Alumno(int id,
                       string nombre,
                       string apellido,
@@ -98,9 +103,9 @@ namespace EntidadesInstanciables
         #region "Métodos"
 
         /// <summary>
-        /// 
+        /// Metodo que sobreescribe ParticiparEnClase()
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Cadena con la clase que toma el alumno</returns>
         protected override string ParticiparEnClase()
         {
             StringBuilder sb = new StringBuilder();
@@ -112,9 +117,9 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Metodo que muestra todos los datos del alumno
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Cadena que contiene los datos del alumno</returns>
         protected override string MostrarDatos()
         {
             StringBuilder sb = new StringBuilder();
@@ -128,9 +133,9 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Método que hace publicos todos los datos del alumno
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Cadena que contiene los datos del alumno</returns>
         public override string ToString()
         {
             return this.MostrarDatos();
@@ -142,10 +147,10 @@ namespace EntidadesInstanciables
         #region "Sobrecarga de Operadores"
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador ==. Un alumno sera igual a una clase si la toma y si su estado de cuenta es diferente a deudor
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="clase"></param>
+        /// <param name="a">Objeto del tipo alumno</param>
+        /// <param name="clase">Universidad.Eclases</param>
         /// <returns></returns>
         public static bool operator ==(Alumno a, Universidad.EClases clase)
         {
@@ -153,10 +158,10 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador !=. Un alumno sera distinto a una clase si no la toma
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="clase"></param>
+        /// <param name="a">Objeto del tipo alumno</param>
+        /// <param name="clase">Universidad.Eclases</param>
         /// <returns></returns>
         public static bool operator !=(Alumno a, Universidad.EClases clase)
         {

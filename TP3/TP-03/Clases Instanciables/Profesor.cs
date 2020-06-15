@@ -20,7 +20,7 @@ namespace EntidadesInstanciables
         #region "Constructores"
 
         /// <summary>
-        /// 
+        /// Constructor de Clase de la Clase Profesor. Inicializa el atributo random.
         /// </summary>
         static Profesor()
         {
@@ -28,18 +28,18 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Constructor por defecto de la clase Profesor, requerido para serializacion xml.
         /// </summary>
         public Profesor() { }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase Profesor
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="nombre"></param>
-        /// <param name="apellido"></param>
-        /// <param name="dni"></param>
-        /// <param name="nacionalidad"></param>
+        /// <param name="id">legajo del Universitario</param>
+        /// <param name="nombre">Nombre de la Persona</param>
+        /// <param name="apellido">Apellido  de la Persona</param>
+        /// <param name="dni">dni de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad  de la Persona</param>
         public Profesor(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad)
             :base(id,nombre,apellido,dni,nacionalidad)
         {
@@ -53,7 +53,7 @@ namespace EntidadesInstanciables
         #region "Métodos"
 
         /// <summary>
-        /// 
+        /// Metodo privado que asgina de forma aleatoria dos clases al atributo clasesDelDia
         /// </summary>
         private void _randomClases()
         {
@@ -64,9 +64,9 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Metodo protegido que muestra los datos de profesor
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Una cadena con los datos de profesor</returns>
         protected override string MostrarDatos()
         {
             StringBuilder sb = new StringBuilder();
@@ -79,9 +79,9 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Metodo que sobreescribe ParticiparEnClase()
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Cadena con las clases que dicta el alumno</returns>
         protected override string ParticiparEnClase()
         {
             StringBuilder sb = new StringBuilder();
@@ -90,16 +90,16 @@ namespace EntidadesInstanciables
 
             foreach (Universidad.EClases item in this.clasesDelDia)
             {
-                sb.AppendLine(item.ToString());//no esta parseado
+                sb.AppendLine(item.ToString());
             }
             return sb.ToString();
 
         }
 
         /// <summary>
-        /// 
+        /// Metodo que hace publico los datos de profesor
         /// </summary>
-        /// <returns></returns>
+        /// <returns>retorna una cadena con todos los datos de profesor</returns>
         public override string ToString()
         {
             return this.MostrarDatos();
@@ -110,10 +110,10 @@ namespace EntidadesInstanciables
         #region "Sobrecarga de Operadores"
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador ==.Un profesor y una clase seran iguales si el profesor da esa clase
         /// </summary>
-        /// <param name="i"></param>
-        /// <param name="clase"></param>
+        /// <param name="i">Objeto del tipo profesor</param>
+        /// <param name="clase">Objeto del tipo Universidad.Eclases</param>
         /// <returns></returns>
         public static bool operator ==(Profesor i, Universidad.EClases clase)
         {
@@ -121,10 +121,10 @@ namespace EntidadesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Sobrecarga del operador !=.Un profesor y una clase seran distintos si el profesor no da esa clase
         /// </summary>
-        /// <param name="i"></param>
-        /// <param name="clase"></param>
+        /// <param name="i">Objeto del tipo profesor</param>
+        /// <param name="clase">Objeto del tipo Universidad.Eclases</param>
         /// <returns></returns>
         public static bool operator !=(Profesor i, Universidad.EClases clase)
         {

@@ -9,7 +9,7 @@ namespace Excepciones
     public class ArchivosException : Exception
     {
         /// <summary>
-        /// 
+        /// Constructor por defecto de la clase ArchivosException
         /// </summary>
         public ArchivosException()
             :this("Archivo Exception")
@@ -18,7 +18,7 @@ namespace Excepciones
         }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase ArchivosException.
         /// </summary>
         /// <param name="mensaje"></param>
         public ArchivosException(string mensaje)
@@ -28,7 +28,7 @@ namespace Excepciones
         }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase ArchivosException.
         /// </summary>
         /// <param name="innerException"></param>
         public ArchivosException(Exception innerException)

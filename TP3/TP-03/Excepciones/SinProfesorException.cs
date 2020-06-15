@@ -9,7 +9,7 @@ namespace Excepciones
     public class SinProfesorException : Exception
     {
         /// <summary>
-        /// 
+        /// Constructor por defecto de la clase SinProfesorException
         /// </summary>
         public SinProfesorException()
             :this("No hay profesor para la clase")
@@ -18,7 +18,7 @@ namespace Excepciones
         }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase SinProfesorException.
         /// </summary>
         /// <param name="mensaje"></param>
         public SinProfesorException(string mensaje)

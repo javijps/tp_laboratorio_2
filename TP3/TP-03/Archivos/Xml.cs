@@ -14,11 +14,11 @@ namespace Archivos
     public class Xml<T> : IArchivo<T>
     {
         /// <summary>
-        /// 
+        /// Implementacion de metodo Guardar() de la interfaz IArchivo<T>. Serializa Xml
         /// </summary>
         /// <param name="archivo"></param>
         /// <param name="datos"></param>
-        /// <returns></returns>
+        /// <returns>true si serializo exitosamente</returns>
         public bool Guardar(string archivo, T datos)
         {
             try
@@ -37,11 +37,11 @@ namespace Archivos
         }
 
         /// <summary>
-        /// 
+        /// Implementacion de metodo Leer() de la interfaz IArchivo<T>. . Deserializa Xml
         /// </summary>
         /// <param name="archivo"></param>
         /// <param name="datos"></param>
-        /// <returns></returns>
+        /// <returns>true si deserializo exitosamente</returns>
         public bool Leer(string archivo, out T datos)
         {
             try

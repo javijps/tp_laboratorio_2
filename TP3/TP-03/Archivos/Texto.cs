@@ -12,11 +12,11 @@ namespace Archivos
     public class Texto : IArchivo<string>
     {
         /// <summary>
-        /// 
+        /// Implementacion de metodo Guardar() de la interfaz IArchivo<T>. Guarda archivos de texto
         /// </summary>
         /// <param name="archivo"></param>
         /// <param name="datos"></param>
-        /// <returns></returns>
+        /// <returns>true si logro guardar exitosamente</returns>
         public bool Guardar(string archivo, string datos)
         {
             try
@@ -36,11 +36,11 @@ namespace Archivos
         }
 
         /// <summary>
-        /// 
+        /// Implementacion de metodo Guardar() de la interfaz IArchivo<T>. Lee archivos de texto.
         /// </summary>
         /// <param name="archivo"></param>
         /// <param name="datos"></param>
-        /// <returns></returns>
+        /// <returns>true si logro leer exitosamente</returns>
         public bool Leer(string archivo, out string datos)
         {
             try
