@@ -24,6 +24,7 @@ namespace EntidadesInstanciables
         public List<Alumno> Alumnos 
         {
             get { return this.alumnos; }
+            
             set { this.alumnos = value; } 
         }
 

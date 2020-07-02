@@ -116,7 +116,17 @@ namespace EntidadesInstanciables
         /// <returns></returns>
         public static bool operator ==(Profesor i, Universidad.EClases clase)
         {
-            return i.clasesDelDia.Contains(clase);
+            if (!(i is null))
+            {
+                foreach (Universidad.EClases item in i.clasesDelDia)
+                {
+                    if (clase == item)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         /// <summary>

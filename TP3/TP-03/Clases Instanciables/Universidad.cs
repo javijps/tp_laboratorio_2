@@ -69,7 +69,14 @@ namespace EntidadesInstanciables
         public Jornada this[int i]
         {
             get { return this.jornada[i]; }
-            set { this.jornada[i] = value; }
+
+            set 
+            {
+                if (value != null)
+                {
+                    this.jornada[i] = value;
+                }
+            }
         }
 
         #endregion
@@ -98,7 +105,7 @@ namespace EntidadesInstanciables
         {
             Xml<Universidad> xml = new Xml<Universidad>();
 
-            return xml.Guardar(@"C:\archivos\ArchivoUniversidad.xml", uni);
+            return xml.Guardar(@"Universidad.xml", uni);
         }
 
         /// <summary>
@@ -109,9 +116,9 @@ namespace EntidadesInstanciables
         {
             Xml<Universidad> xml = new Xml<Universidad>();
 
-            Universidad u = null;
+            Universidad u;
 
-            xml.Leer(@"C:\archivos\ArchivoUniversidad.xml", out u);
+            xml.Leer(@"Universidad.xml", out u);
 
             return u;
         }
@@ -157,7 +164,13 @@ namespace EntidadesInstanciables
         {
             if (!(a is null))
             {
-                return u.Alumnos.Contains(a);
+                foreach (Alumno item in u.Alumnos)
+                {
+                    if (item == a)
+                    {
+                        return true;
+                    }
+                }
             }
             return false;
         }
@@ -183,7 +196,13 @@ namespace EntidadesInstanciables
         {
             if (!(i is null))
             {
-                return u.Profesores.Contains(i);
+                foreach (Profesor item in u.profesores)
+                {
+                    if(item == i)
+                    {
+                        return true;
+                    }
+                }
             }
             return false;
         }

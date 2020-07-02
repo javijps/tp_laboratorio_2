@@ -85,7 +85,10 @@ namespace EntidadesAbstractas
 
             if (obj is Universitario)
             {
-                rta = this == ((Universitario)obj);
+                if(this.DNI == ((Universitario)obj).DNI || this.Legajo == ((Universitario)obj).Legajo)
+                {
+                    return true;
+                }
             }
             return rta;
         }
@@ -103,7 +106,7 @@ namespace EntidadesAbstractas
         /// <returns>True en caso de que los objetos sean del mismo tipo y tengan mismo dni o legajo, false en caso contrario</returns>
         public static bool operator ==(Universitario pg1, Universitario pg2)
         {
-            return (pg1.GetType() == pg2.GetType()) && (pg1.Legajo == pg2.Legajo || pg1.DNI == pg2.DNI);
+            return pg1.Equals(pg2);
         }
 
         /// <summary>
