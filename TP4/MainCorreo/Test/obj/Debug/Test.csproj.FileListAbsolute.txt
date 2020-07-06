@@ -1,0 +1,16 @@
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\bin\Debug\Test.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\bin\Debug\Test.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\bin\Debug\Entidades.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\bin\Debug\Entidades.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\obj\Debug\Test.csprojAssemblyReference.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\obj\Debug\Test.csproj.CopyComplete
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\obj\Debug\Test.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\Test\obj\Debug\Test.pdb

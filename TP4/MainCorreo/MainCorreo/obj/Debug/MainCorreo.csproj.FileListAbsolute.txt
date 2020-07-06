@@ -1,0 +1,13 @@
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\bin\Debug\MainCorreo.exe.config
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\bin\Debug\MainCorreo.exe
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\bin\Debug\MainCorreo.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\obj\Debug\MainCorreo.csprojAssemblyReference.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\obj\Debug\MainCorreo.FrmPpal.resources
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\obj\Debug\MainCorreo.Properties.Resources.resources
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\obj\Debug\MainCorreo.csproj.GenerateResource.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\obj\Debug\MainCorreo.csproj.CoreCompileInputs.cache
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\obj\Debug\MainCorreo.exe
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\obj\Debug\MainCorreo.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\bin\Debug\Entidades.dll
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\bin\Debug\Entidades.pdb
+C:\Users\Javi\Desktop\PROGRAMACION 2-LABO 2\tp_laboratorio_2\TP4\MainCorreo\MainCorreo\obj\Debug\MainCorreo.csproj.CopyComplete

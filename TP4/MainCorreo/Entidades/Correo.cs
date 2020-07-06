@@ -9,6 +9,8 @@ namespace Entidades
 {
     public class Correo : IMostrar<List<Paquete>>
     {
+        //ARREGLAR COMO MUESTRA EL ESTADO DEL PAQUETE
+
         #region Atributos
 
         private List<Thread> mockPaquetes;
@@ -21,7 +23,21 @@ namespace Entidades
         /// <summary>
         /// Propiedad publica del atributo paquetes.
         /// </summary>
-        public List<Paquete> Paquetes { get; set; }
+        public List<Paquete> Paquetes 
+        {
+            get
+            {
+                return this.paquetes;
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    this.paquetes = value;
+                }
+            }
+        }
 
         #endregion
 
@@ -50,21 +66,23 @@ namespace Entidades
             }
         }
 
+
+
         /// <summary>
-        /// Metodo que hace publica la informacion de .......
+        /// Metodo que hace publica la informacion de todos los paquetes existentes en la lista paquetes.
         /// </summary>
         /// <returns>Cadena que contiene la informacion</returns>
         public string MostrarDatos(IMostrar<List<Paquete>> elemento)
         {
-            //COMO RESUELVO NO PODER USAR EL FOREACH?
-
             string cadena = String.Empty;
 
-            //foreach (Paquete item in elemento)
-            //{
-            //    cadena += String.Format("");
-            //}
-
+            if (elemento != null)
+            {
+                foreach (Paquete item in ((Correo)elemento).paquetes)
+                {
+                    cadena += String.Format("{0} para {1} {2}\n", item.TrackingID, item.DireccionEntrega, item.Estado.ToString());
+                }
+            }
             return cadena;
         }
 
@@ -73,30 +91,29 @@ namespace Entidades
         #region Operadores
 
         /// <summary>
-        /// Sobrecarga del operador +. Agrega un paquete a la lista paquetes, si el mismo ya existe, Arroja excepcion TrackingIdException.
-        /// Crea un hilo para el Metodo MockCicloDeVida, lo agrega a mockPaquetes y lo ejecuta.
+        /// Sobrecarga del operador +. Agrega un paquete a la lista paquetes, si el mismo ya existe, arroja excepcion TrackingIdException.
+        /// En caso de haber agregado el paquete a la lista, crea un hilo para el Metodo MockCicloDeVida, lo agrega a mockPaquetes y lo ejecuta.
         /// </summary>
         /// <param name="c">Objeto Correo</param>
         /// <param name="p">Objeto Paquete</param>
         /// <returns></returns>
         public static Correo operator +(Correo c, Paquete p)
         {
+            Thread thread = new Thread(new ThreadStart(p.MockCicloDeVida));
+
             foreach (Paquete item in c.paquetes)
             {
-                if (item != p)
+                if (item == p)
                 {
-                    c.paquetes.Add(p);
+                    throw new TrackingIdRepetidoException("Paquete existente!!");
                 }
-                else
-                {
-                    //reemplazar con la excepcion correspondiente
-                    throw new Exception();
-                }
-
-                //PENDIENTE HILO Y MOCKCICLODEVIDAPAQUETE
             }
 
+            c.paquetes.Add(p);
 
+            c.mockPaquetes.Add(thread);
+
+            thread.Start();
 
             return c;
         }

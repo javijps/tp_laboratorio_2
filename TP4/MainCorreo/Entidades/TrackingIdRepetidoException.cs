@@ -9,9 +9,9 @@ namespace Entidades
     public class TrackingIdRepetidoException : Exception
     {
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase TrackingIdRepetidoException
         /// </summary>
-        /// <param name="mensaje"></param>
+        /// <param name="mensaje">Mensaje a mostrar en caso de lanzarse la excpecion</param>
         public TrackingIdRepetidoException(string mensaje)
             :base(mensaje)
         {
@@ -19,10 +19,10 @@ namespace Entidades
         }
 
         /// <summary>
-        /// 
+        /// Constructor de instancia de la clase TrackingIdRepetidoException
         /// </summary>
-        /// <param name="mensaje"></param>
-        /// <param name="innerException"></param>
+        /// <param name="mensaje">Mensaje a mostrar en caso de lanzarse la excpecion</param>
+        /// <param name="innerException">Excepcion interna</param>
         public TrackingIdRepetidoException(string mensaje, Exception innerException)
             : base(mensaje)
         {
