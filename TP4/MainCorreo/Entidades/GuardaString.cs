@@ -10,6 +10,9 @@ namespace Entidades
 {
     public static class GuardaString
     {
+
+        #region Métodos
+
         /// <summary>
         /// Método de Extension para la clase string. Guarda el texto en un archivo txt en el escritorio de la máquina.
         /// </summary>
@@ -24,7 +27,6 @@ namespace Entidades
             bool retorno = false;
             try
             {
-                //HACERLO MAS LINDO
                 using (StreamWriter sw = new StreamWriter(rutaEscritorio + nombreArchivo,true))
                 {
                     sw.WriteLine(texto,archivo);
@@ -39,5 +41,7 @@ namespace Entidades
 
             return retorno;
         }
+
+        #endregion
     }
 }

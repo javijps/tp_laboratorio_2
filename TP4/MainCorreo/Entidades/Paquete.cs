@@ -33,8 +33,6 @@ namespace Entidades
 
         #region Propiedades
 
-        //HACER LAS VALIDACIONES?
-
         /// <summary>
         /// Propiedad publica de lectura y escritura del atributo DireccionEntrega
         /// </summary>

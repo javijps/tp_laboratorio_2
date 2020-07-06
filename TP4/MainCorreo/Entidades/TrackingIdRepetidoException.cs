@@ -8,6 +8,8 @@ namespace Entidades
 {
     public class TrackingIdRepetidoException : Exception
     {
+        #region Constructores
+
         /// <summary>
         /// Constructor de instancia de la clase TrackingIdRepetidoException
         /// </summary>
@@ -28,5 +30,7 @@ namespace Entidades
         {
 
         }
+
+        #endregion
     }
 }

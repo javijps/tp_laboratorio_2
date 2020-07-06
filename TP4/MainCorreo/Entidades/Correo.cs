@@ -9,8 +9,6 @@ namespace Entidades
 {
     public class Correo : IMostrar<List<Paquete>>
     {
-        //ARREGLAR COMO MUESTRA EL ESTADO DEL PAQUETE
-
         #region Atributos
 
         private List<Thread> mockPaquetes;
