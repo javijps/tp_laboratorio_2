@@ -50,7 +50,7 @@ namespace MainCorreo
             }
             catch(Exception ex)
             {
-                MessageBox.Show("No ha sido posible ingresar el paquete! Mensaje de error: {0}", ex.Message);
+                MessageBox.Show("No ha sido posible ingresar el paquete! Mensaje de error: " + ex.Message);
             }
 
             this.ActualizarEstados();
