@@ -55,11 +55,14 @@ namespace Entidades
         /// </summary>
         public void FinDeEntregas()
         {
-            foreach (Thread item in this.mockPaquetes)
+            if (!(this.mockPaquetes is null))
             {
-                if(item.IsAlive)
+                foreach (Thread item in this.mockPaquetes)
                 {
-                    item.Abort();
+                    if (item.IsAlive)
+                    {
+                        item.Abort();
+                    }
                 }
             }
         }
@@ -99,20 +102,30 @@ namespace Entidades
         {
             Thread thread = new Thread(new ThreadStart(p.MockCicloDeVida));
 
-            foreach (Paquete item in c.paquetes)
+
+            if (c != null && p != null && c.paquetes != null)
             {
-                if (item == p)
+                foreach (Paquete item in c.paquetes)
                 {
-                    throw new TrackingIdRepetidoException("Paquete existente!!");
+                    if (item == p)
+                    {
+                        throw new TrackingIdRepetidoException("Paquete existente!!");
+                    }
+                }
+
+                try
+                {
+                    c.paquetes.Add(p);
+
+                    c.mockPaquetes.Add(thread);
+
+                    thread.Start();
+                }
+                catch(Exception e)
+                {
+                    throw new Exception(e.Message, e);
                 }
             }
-
-            c.paquetes.Add(p);
-
-            c.mockPaquetes.Add(thread);
-
-            thread.Start();
-
             return c;
         }
 

@@ -11,6 +11,9 @@ namespace Entidades
 {
     public static class PaqueteDAO
     {
+        public delegate void DelegadoExcepcionDAO(string msg, Exception e);
+        public static event DelegadoExcepcionDAO ExcepcionDAO;
+
         private static SqlCommand comando;
         private static SqlConnection conexion;
 
@@ -21,7 +24,9 @@ namespace Entidades
         /// </summary>
         static PaqueteDAO()
         {
-            PaqueteDAO.conexion = new SqlConnection(@"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+//            PaqueteDAO.conexion = new SqlConnection(@"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+
+            PaqueteDAO.conexion = new SqlConnection(@"Server=localhost\lnkl;Database=xxx;Trusted_Connection=True;");
         }
 
         /// <summary>
@@ -58,8 +63,8 @@ namespace Entidades
 
             }
             catch(Exception e)
-            {   
-                throw new Exception(e.Message, e);
+            {
+                PaqueteDAO.ExcepcionDAO.Invoke(e.Message, e);
             }
             finally
             {

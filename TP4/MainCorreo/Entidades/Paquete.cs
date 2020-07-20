@@ -44,9 +44,14 @@ namespace Entidades
             }
             set 
             {
-                if (value != null)
+                //agregar alguna validacion?
+                if (!String.IsNullOrEmpty(value))
                 {
                     this.direccionEntrega = value;
+                }
+                else
+                {
+                    throw new Exception("Direccion invalida");
                 }
             } 
         }
@@ -79,9 +84,14 @@ namespace Entidades
 
             set
             {
-                if (trackingID != null)
+                //agregar alguna validacion?
+                if (!(String.IsNullOrEmpty(value)) &&  value.Length == 10)
                 {
                     this.trackingID = value;
+                }
+                else
+                {
+                    throw new Exception("Tracking ID invalido");
                 }
             }
         }
@@ -97,7 +107,7 @@ namespace Entidades
         public Paquete(string direccionEntrega, string trackingID)
         {
             this.DireccionEntrega = direccionEntrega;
-            this.trackingID = trackingID;
+            this.TrackingID = trackingID;
         }
 
         /// <summary>
@@ -108,25 +118,25 @@ namespace Entidades
         {
             EventArgs e = default;
 
-            while (this.estado <= EEstado.Entregado)
+            try
             {
+                while (this.estado < EEstado.Entregado)
+                {
                     //Demora de 4 segundos.
                     Thread.Sleep(4000);
                     //Pasar al siguiente estado.
                     this.estado++;
                     //Evento InformarEstado. 
                     this.InformaEstado.Invoke(this, e);
-            }
+                }
 
-            try
-            {
                 PaqueteDAO.Insertar(this);
+
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message, ex);
             }
-
         }
 
         /// <summary>
@@ -136,9 +146,15 @@ namespace Entidades
         /// <returns>Retorna una cadena con el tracking Id y direccion de entrega del paquete</returns>
         public string MostrarDatos(IMostrar<Paquete> elemento)
         {
-            Paquete p = (Paquete)elemento;
+            string datosPaquete = String.Empty;
 
-            return String.Format("{0} para {1}",p.TrackingID, p.DireccionEntrega);
+            if (elemento != null)
+            {
+                Paquete p = (Paquete)elemento;
+
+                datosPaquete = String.Format("{0} para {1}", p.TrackingID, p.DireccionEntrega);
+            }
+            return datosPaquete;
         }
 
         /// <summary>
@@ -149,7 +165,7 @@ namespace Entidades
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine(MostrarDatos(this));
+            sb.Append(MostrarDatos(this));
             sb.AppendFormat(" ({0})", this.estado.ToString());
 
             return sb.ToString();
@@ -167,9 +183,12 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator ==(Paquete p1, Paquete p2)
         {
-            if (String.Compare(p1.TrackingID, p2.TrackingID) == 0)
+            if (!(p1 is null) &&  !(p2 is null))
             {
-                return true;
+                if (String.Compare(p1.TrackingID, p2.TrackingID) == 0)
+                {
+                    return true;
+                }
             }
             return false;
         }

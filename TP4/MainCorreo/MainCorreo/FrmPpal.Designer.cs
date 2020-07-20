@@ -206,6 +206,7 @@
             // mtxtTrackingId
             // 
             this.mtxtTrackingId.Location = new System.Drawing.Point(9, 43);
+            this.mtxtTrackingId.Mask = "00-00-0000";
             this.mtxtTrackingId.Name = "mtxtTrackingId";
             this.mtxtTrackingId.Size = new System.Drawing.Size(135, 20);
             this.mtxtTrackingId.TabIndex = 9;

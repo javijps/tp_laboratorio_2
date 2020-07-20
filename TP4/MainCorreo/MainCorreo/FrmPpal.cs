@@ -39,23 +39,27 @@ namespace MainCorreo
         /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
-            this.paquete = new Paquete(this.txtDireccion.Text, this.mtxtTrackingId.Text);
-
-            paquete.InformaEstado += new Paquete.DelegadoEstado(paq_InformaEstado);
-
             try
             {
+                this.paquete = new Paquete(this.txtDireccion.Text, this.mtxtTrackingId.Text);
+
+                PaqueteDAO.ExcepcionDAO += new PaqueteDAO.DelegadoExcepcionDAO(MostrarMensajeExcepcionDAO);
+
+                paquete.InformaEstado += new Paquete.DelegadoEstado(paq_InformaEstado);
+
                 this.correo += this.paquete;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("No ha sido posible ingresar el paquete! Mensaje de error: " + ex.Message);
+
+                PaqueteDAO.ExcepcionDAO -= new PaqueteDAO.DelegadoExcepcionDAO(MostrarMensajeExcepcionDAO);
             }
 
             this.ActualizarEstados();
             this.txtDireccion.Clear();
             this.mtxtTrackingId.Clear();
+
         }
 
         /// <summary>
@@ -168,6 +172,28 @@ namespace MainCorreo
                     MessageBox.Show(mensaje);
                 }
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="e"></param>
+        private void MostrarMensajeExcepcionDAO(string msg, Exception e)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("No fue posible almacenar la informacion en la base de datos!");
+            sb.AppendLine();
+            sb.Append("Excepcion: ");
+            sb.AppendLine(e.GetType().ToString());
+            sb.AppendLine();
+            sb.AppendLine(msg);
+            
+            MessageBox.Show(sb.ToString());
+
+            PaqueteDAO.ExcepcionDAO -= new PaqueteDAO.DelegadoExcepcionDAO(MostrarMensajeExcepcionDAO);
+
         }
 
         #endregion
